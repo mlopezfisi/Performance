@@ -50,7 +50,7 @@
           </elementProp>
           <elementProp name="results_dir" elementType="Argument">
             <stringProp name="Argument.name">results_dir</stringProp>
-            <stringProp name="Argument.value">${__property(resuldir,,D:\Vector\Performance\results)}</stringProp>
+            <stringProp name="Argument.value">${__property(resuldir,,C:\Documents and Settings\Administrador\Escritorio\apache-jmeter-3.1\results)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="thinktimemin" elementType="Argument">
