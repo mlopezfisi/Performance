@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testResults version="1.2">
+<httpSample t="363" it="0" lt="0" ct="183" ts="1500344856381" s="true" lb="1 /generate_204" rc="204" rm="No Content" tn="" dt="" de="" by="83" sc="1" ec="0" ng="0" na="0" hn="LENOVO">
+  <responseHeader class="java.lang.String">HTTP/1.1 204 No Content
+Content-Length: 0
+Date: Tue, 18 Jul 2017 02:27:36 GMT
+</responseHeader>
+  <requestHeader class="java.lang.String">Connection: keep-alive
+Accept-Language: es-ES,es;q=0.8
+Cache-Control: no-cache
+Pragma: no-cache
+Accept-Encoding: gzip, deflate, sdch
+User-Agent: Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36
+Content-Length: 0
+Content-Type: text/plain; charset=ISO-8859-1
+Host: www.gstatic.com
+</requestHeader>
+  <responseData class="java.lang.String">Non-TEXT response data, cannot record: ()</responseData>
+  <responseFile class="java.lang.String"></responseFile>
+  <cookies class="java.lang.String"></cookies>
+  <method class="java.lang.String">GET</method>
+  <queryString class="java.lang.String"></queryString>
+  <java.net.URL>http://www.gstatic.com/generate_204</java.net.URL>
+</httpSample>
+<httpSample t="0" it="0" lt="0" ct="0" ts="1500344863102" s="false" lb="2 /safebrowsing/clientreport/chrome-certs" rc="Non HTTP response code: java.lang.IllegalArgumentException" rm="Non HTTP response message: URLDecoder: Illegal hex characters in escape (%) pattern - For input string: &quot;O&#x15;&quot;" tn="" dt="text" de="" by="697" sc="1" ec="1" ng="0" na="0" hn="LENOVO">
+  <responseHeader class="java.lang.String"></responseHeader>
+  <requestHeader class="java.lang.String"></requestHeader>
+  <responseData class="java.lang.String">java.lang.IllegalArgumentException: URLDecoder: Illegal hex characters in escape (%) pattern - For input string: &quot;O&#x15;&quot;&#xd;
+	at java.net.URLDecoder.decode(Unknown Source)&#xd;
+	at org.apache.jmeter.protocol.http.sampler.HTTPHC4Impl.sendPostData(HTTPHC4Impl.java:1374)&#xd;
+	at org.apache.jmeter.protocol.http.sampler.HTTPHC4Impl.handleMethod(HTTPHC4Impl.java:592)&#xd;
+	at org.apache.jmeter.protocol.http.sampler.HTTPHC4Impl.sample(HTTPHC4Impl.java:409)&#xd;
+	at org.apache.jmeter.protocol.http.sampler.HTTPSamplerProxy.sample(HTTPSamplerProxy.java:74)&#xd;
+	at org.apache.jmeter.protocol.http.sampler.HTTPSamplerBase.sample(HTTPSamplerBase.java:1166)&#xd;
+	at org.apache.jmeter.protocol.http.proxy.Proxy.run(Proxy.java:240)&#xd;
+</responseData>
+  <responseFile class="java.lang.String"></responseFile>
+  <cookies class="java.lang.String"></cookies>
+  <method class="java.lang.String">POST</method>
+  <queryString class="java.lang.String"></queryString>
+  <java.net.URL>http://safebrowsing.googleusercontent.com/safebrowsing/clientreport/chrome-certs</java.net.URL>
+</httpSample>
+<httpSample t="1597" it="0" lt="1568" ct="1189" ts="1500344863092" s="true" lb="3 /Gmg.Identity.Provider.FrontEnd.Web/Login" rc="200" rm="OK" tn="" dt="text" de="utf-8" by="3179" sc="1" ec="0" ng="0" na="0" hn="LENOVO">
+  <responseHeader class="java.lang.String">HTTP/1.1 200 OK
+Cache-Control: private
+Content-Type: text/html; charset=utf-8
+Vary: Accept-Encoding
+Server: Microsoft-IIS/8.0
+X-AspNetMvc-Version: 5.2
+X-AspNet-Version: 4.0.30319
+X-Powered-By: ASP.NET
+Date: Tue, 18 Jul 2017 02:27:44 GMT
+Content-Length: 2885
+Content-Encoding: gzip
+</responseHeader>
+  <requestHeader class="java.lang.String">Connection: keep-alive
+Referer: http://portalservicios-qa.azurewebsites.net/portal-servicios/inicio.html
+Accept-Language: es-ES,es;q=0.8
+Upgrade-Insecure-Requests: 1
+Accept-Encoding: gzip, deflate, sdch
+User-Agent: Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Host: gmgssodev.azurewebsites.net
+</requestHeader>
+  <responseData class="java.lang.String">&#xd;
+&#xd;
+&lt;!DOCTYPE html&gt;&#xd;
+&lt;!--[if lt IE 7]&gt;      &lt;html class=&quot;no-js lt-ie9 lt-ie8 lt-ie7&quot;&gt; &lt;![endif]--&gt;&#xd;
+&lt;!--[if IE 7]&gt;         &lt;html class=&quot;no-js lt-ie9 lt-ie8&quot;&gt; &lt;![endif]--&gt;&#xd;
+&lt;!--[if IE 8]&gt;         &lt;html class=&quot;no-js lt-ie9&quot;&gt; &lt;![endif]--&gt;&#xd;
+&lt;!--[if gt IE 8]&gt;&lt;!--&gt;&#xd;
+&lt;html class=&quot;no-js&quot; id=&quot;extr-page&quot;&gt;&#xd;
+&lt;!--&lt;![endif]--&gt;&#xd;
+&#xd;
+&lt;head&gt;&#xd;
+    &lt;meta charset=&quot;utf-8&quot;&gt;&#xd;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;&#xd;
+    &lt;title&gt;Grupo Monge - Single Sign On&lt;/title&gt;&#xd;
+    &lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;&#xd;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot; /&gt;&#xd;
+    &lt;!-- Favicon --&gt;&#xd;
+    &lt;link rel=&quot;shortcut icon&quot; href=&quot;/gmg.identity.provider.frontend.web/Content/img/favicon.ico&quot; type=&quot;image/x-icon&quot;&gt;&#xd;
+    &lt;!-- Bootstrap core CSS --&gt;&#xd;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;/gmg.identity.provider.frontend.web/Content/plugins/bootstrap/css/bootstrap.min.css&quot;&gt;&#xd;
+    &lt;!-- Fonts  --&gt;&#xd;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;/gmg.identity.provider.frontend.web/Content/css/font-awesome.min.css&quot;&gt;&#xd;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;/gmg.identity.provider.frontend.web/Content/css/simple-line-icons.css&quot;&gt;&#xd;
+&#xd;
+&#xd;
+&#xd;
+&#xd;
+    &lt;!-- ajaxloader --&gt;&#xd;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;/gmg.identity.provider.frontend.web/Content/css/ajaxloader.css&quot;&gt;&#xd;
+    &lt;!-- CSS Animate --&gt;&#xd;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;/gmg.identity.provider.frontend.web/Content/css/animate.css&quot;&gt;&#xd;
+    &lt;!-- Messages --&gt;&#xd;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;/gmg.identity.provider.frontend.web/Content/plugins/messenger/css/messenger.css&quot;&gt;&#xd;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;/gmg.identity.provider.frontend.web/Content/plugins/messenger/css/messenger-theme-flat.css&quot;&gt;&#xd;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;/gmg.identity.provider.frontend.web/Content/plugins/messenger/css/location-sel.css&quot;&gt;&#xd;
+    &lt;!-- Custom styles for this theme --&gt;&#xd;
+    &#xd;
+    &lt;link href=&quot;/gmg.identity.provider.frontend.web/Content/css/smartadmin-production-plugins.min.css&quot; rel=&quot;stylesheet&quot; /&gt;&#xd;
+    &lt;link href=&quot;/gmg.identity.provider.frontend.web/Content/css/smartadmin-production.min.css&quot; rel=&quot;stylesheet&quot; /&gt;&#xd;
+    &lt;link href=&quot;/gmg.identity.provider.frontend.web/Content/css/smartadmin-skins.min.css&quot; rel=&quot;stylesheet&quot; /&gt;&#xd;
+    &lt;link href=&quot;/gmg.identity.provider.frontend.web/Content/css/login.css&quot; rel=&quot;stylesheet&quot; /&gt;&#xd;
+&#xd;
+    &lt;style&gt;&#xd;
+        .divAreaOlvidoContra {&#xd;
+            display:none !important;&#xd;
+        }&#xd;
+    &lt;/style&gt;&#xd;
+&#xd;
+&#xd;
+    &lt;!-- Message Modal--&gt;&#xd;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;/gmg.identity.provider.frontend.web/Content/plugins/ReModal/messageModal.css&quot;&gt;&#xd;
+&#xd;
+    &lt;!-- Feature detection --&gt;&#xd;
+    &lt;script src=&quot;/gmg.identity.provider.frontend.web/Content/js/vendor/modernizr-2.6.2.min.js&quot;&gt;&lt;/script&gt;&#xd;
+    &lt;!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries --&gt;&#xd;
+    &lt;!--[if lt IE 9]&gt;&#xd;
+    &lt;script src=&quot;~/Content/js/vendor/html5shiv.js&quot;&gt;&lt;/script&gt;&#xd;
+    &lt;script src=&quot;~/Content/js/vendor/respond.min.js&quot;&gt;&lt;/script&gt;&#xd;
+    &lt;![endif]--&gt;&#xd;
+    &lt;link rel=&quot;shortcut icon&quot; href=&quot;/gmg.identity.provider.frontend.web/favicon.ico&quot; type=&quot;image/x-icon&quot;&gt;&#xd;
+    &lt;link rel=&quot;icon&quot; href=&quot;/gmg.identity.provider.frontend.web/favicon.ico&quot; type=&quot;image/x-icon&quot;&gt;&#xd;
+    &lt;!--Se agregó para evitar el espacio al seleccionar el pais--&gt;&#xd;
+    &lt;!--Se agregó desde acá para que solo afecte este archivo y no afecte los demás--&gt;&#xd;
+    &lt;style&gt;&#xd;
+        .select2-chosen {&#xd;
+            padding-left: 0 !important;&#xd;
+        }&#xd;
+    &lt;/style&gt;&#xd;
+&lt;/head&gt;&#xd;
+&#xd;
+&lt;body class=&quot;animated fadeInDown&quot;&gt;&#xd;
+    &lt;div id=&quot;mainmenu&quot; class=&quot;wrapper&quot;&gt;&#xd;
+        &lt;header id=&quot;header&quot;&gt;&#xd;
+            &lt;div id=&quot;logo-group&quot; class=&quot;hidden-md hidden-lg&quot;&gt;&#xd;
+                &lt;span id=&quot;logo&quot;&gt; &lt;img src=&quot;/gmg.identity.provider.frontend.web/Content/img/gmg.png&quot; alt=&quot;SmartAdmin&quot;&gt; &lt;/span&gt;&#xd;
+            &lt;/div&gt;&#xd;
+        &lt;/header&gt;&#xd;
+&#xd;
+        &lt;main&gt;&#xd;
+            &lt;div id=&quot;content&quot; class=&quot;container&quot;&gt;&#xd;
+                &lt;div class=&quot;row&quot;&gt;&#xd;
+                    &lt;div class=&quot;col-xs-12 col-sm-12 col-md-6 col-lg-6 hidden-xs hidden-sm&quot;&gt;&#xd;
+                        &lt;h1 class=&quot;txt-color-red login-header-big&quot;&gt;&amp;nbsp;&lt;/h1&gt;&#xd;
+                        &lt;h1 class=&quot;txt-color-red login-header-big&quot;&gt;&amp;nbsp;&lt;/h1&gt;&#xd;
+                        &lt;div&gt;&#xd;
+                            &lt;img src=&quot;/gmg.identity.provider.frontend.web/Content/img/gmg.png&quot; id=&quot;logoimage&quot; class=&quot;pull-right display-image&quot; alt=&quot;&quot; style=&quot;width:210px&quot;&gt;&#xd;
+                        &lt;/div&gt;&#xd;
+                    &lt;/div&gt;&#xd;
+&#xd;
+                    &lt;div class=&quot;col-xs-12 col-sm-12 col-md-6 col-lg-4&quot;&gt;&#xd;
+                        &lt;div class=&quot;well no-padding&quot;&gt;&#xd;
+                            &lt;form id=&quot;formLogin&quot; class=&quot;smart-form client-form&quot;&gt;&#xd;
+                                &lt;header&gt;&lt;strong&gt;CRM Service Interno (DEV) - Login &lt;span style=&quot;font-size:7pt&quot;&gt;RD0003FFACEE93&lt;/span&gt;&lt;/strong&gt;&lt;/header&gt;&#xd;
+&#xd;
+                                &lt;fieldset&gt;&#xd;
+                                    &lt;section&gt;&#xd;
+                                        &lt;label class=&quot;label&quot;&gt;Pa&amp;iacute;s&lt;/label&gt;&#xd;
+                                        &lt;label class=&quot;input&quot;&gt;&#xd;
+                                            &lt;select id=&quot;pais&quot; class=&quot;js-states form-control&quot; style=&quot;width:100%&quot;&gt;&#xd;
+                                                            &lt;option value=&quot;http://crmserviceinterno.CRI&quot;&gt;Costa Rica&lt;/option&gt;&#xd;
+            &lt;option value=&quot;http://crmserviceinterno.NIC&quot;&gt;Nicaragua&lt;/option&gt;&#xd;
+&#xd;
+&#xd;
+                                            &lt;/select&gt;&#xd;
+                                        &lt;/label&gt;&#xd;
+                                    &lt;/section&gt;&#xd;
+                                    &lt;section&gt;&#xd;
+                                        &lt;label class=&quot;label&quot;&gt;Usuario&lt;/label&gt;&#xd;
+                                        &lt;label class=&quot;input&quot;&gt;&#xd;
+                                            &lt;i class=&quot;icon-append fa fa-user&quot;&gt;&lt;/i&gt;&#xd;
+                                            &lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;user&quot; name=&quot;user&quot; placeholder=&quot;Usuario&quot;&gt;&#xd;
+                                            &lt;b class=&quot;tooltip tooltip-top-right&quot;&gt;&lt;i class=&quot;fa fa-user txt-color-teal&quot;&gt;&lt;/i&gt; Ingrese su usuario&lt;/b&gt;&#xd;
+                                        &lt;/label&gt;&#xd;
+                                    &lt;/section&gt;&#xd;
+&#xd;
+                                    &lt;section&gt;&#xd;
+                                        &lt;label class=&quot;label&quot;&gt;Contrase&amp;ntilde;a&lt;/label&gt;&#xd;
+                                        &lt;label class=&quot;input&quot;&gt;&#xd;
+                                            &lt;i class=&quot;icon-append fa fa-lock&quot;&gt;&lt;/i&gt;&#xd;
+                                            &lt;input type=&quot;password&quot; class=&quot;form-control&quot; id=&quot;password&quot; placeholder=&quot;Contrase&amp;ntilde;a&quot; required&gt;&#xd;
+                                            &lt;b class=&quot;tooltip tooltip-top-right&quot;&gt;&lt;i class=&quot;fa fa-lock txt-color-teal&quot;&gt;&lt;/i&gt; Ingrese su contraseña&lt;/b&gt;&#xd;
+                                            &lt;label id=&quot;DatosIncorrectos&quot; style=&quot;color:red; display:none&quot; class=&quot;label&quot;&gt;Usuario o Contraseña incorrecta&lt;/label&gt;&#xd;
+                                        &lt;/label&gt;&#xd;
+                                    &lt;/section&gt;&#xd;
+                                    &lt;section&gt;&#xd;
+                                        &lt;div class=&quot;divAreaOlvidoContra&quot;&gt;&#xd;
+                                            &lt;a href=&quot;#&quot;&gt;Olvidó su contraseña?&lt;/a&gt;&#xd;
+                                        &lt;/div&gt;&#xd;
+                                    &lt;/section&gt;&#xd;
+                                &lt;/fieldset&gt;&#xd;
+                                &lt;footer&gt;&#xd;
+                                    &lt;button type=&quot;submit&quot; id=&quot;btnSignIn&quot; name=&quot;btnSignIn&quot; class=&quot;btn btn-danger&quot;&gt;Ingresar&lt;/button&gt;&#xd;
+                                &lt;/footer&gt;&#xd;
+                            &lt;/form&gt;&#xd;
+&#xd;
+                        &lt;/div&gt;&#xd;
+                    &lt;/div&gt;&#xd;
+                &lt;/div&gt;&#xd;
+            &lt;/div&gt;&#xd;
+        &lt;/main&gt;&#xd;
+&#xd;
+        &lt;footer id=&quot;footer&quot;&gt;&#xd;
+            &lt;p&gt; Copyright &amp;copy; 2017 Grupo Monge. &lt;/p&gt;&#xd;
+        &lt;/footer&gt;&#xd;
+    &lt;/div&gt;&#xd;
+&#xd;
+    &lt;div class=&quot;fakeloader&quot;&gt;&lt;/div&gt;&#xd;
+    &lt;!--Global JS--&gt;&#xd;
+    &lt;script src=&quot;/gmg.identity.provider.frontend.web/Content/js/vendor/jquery-1.11.1.min.js&quot;&gt;&lt;/script&gt;&#xd;
+    &lt;script src=&quot;/gmg.identity.provider.frontend.web/Content/js/vendor/jquery.cookie.js&quot;&gt;&lt;/script&gt;&#xd;
+    &lt;script src=&quot;/gmg.identity.provider.frontend.web/Content/plugins/bootstrap/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;&#xd;
+    &lt;script src=&quot;/gmg.identity.provider.frontend.web/Content/plugins/navgoco/jquery.navgoco.min.js&quot;&gt;&lt;/script&gt;&#xd;
+    &lt;script src=&quot;/gmg.identity.provider.frontend.web/Content/plugins/fullscreen/jquery.fullscreen-min.js&quot;&gt;&lt;/script&gt;&#xd;
+    &lt;!--validatio--&gt;&#xd;
+    &lt;script src=&quot;/gmg.identity.provider.frontend.web/Content/plugins/validation/js/jquery.validate.min.js&quot;&gt;&lt;/script&gt;&#xd;
+    &lt;script src=&quot;/gmg.identity.provider.frontend.web/Content/plugins/validation/js/additional-methods.js&quot;&gt;&lt;/script&gt;&#xd;
+    &lt;!--Page Level JS--&gt;&#xd;
+    &lt;script src=&quot;/gmg.identity.provider.frontend.web/Content/plugins/weather/js/skycons.js&quot;&gt;&lt;/script&gt;&#xd;
+    &lt;!-- daterangepicker  --&gt;&#xd;
+    &lt;script src=&quot;/gmg.identity.provider.frontend.web/Content/plugins/daterangepicker/moment.min.js&quot;&gt;&lt;/script&gt;&#xd;
+    &lt;!-- messenger  --&gt;&#xd;
+    &lt;script src=&quot;/gmg.identity.provider.frontend.web/Content/plugins/messenger/js/messenger.min.js&quot;&gt;&lt;/script&gt;&#xd;
+    &lt;script src=&quot;/gmg.identity.provider.frontend.web/Content/plugins/messenger/js/messenger-theme-future.js&quot;&gt;&lt;/script&gt;&#xd;
+    &lt;!-- Vector Map  --&gt;&#xd;
+    &lt;script src=&quot;/gmg.identity.provider.frontend.web/Content/plugins/jvectormap/js/jquery-jvectormap-1.2.2.min.js&quot;&gt;&lt;/script&gt;&#xd;
+    &lt;script src=&quot;/gmg.identity.provider.frontend.web/Content/plugins/jvectormap/js/jquery-jvectormap-world-mill-en.js&quot;&gt;&lt;/script&gt;&#xd;
+    &lt;script src=&quot;/gmg.identity.provider.frontend.web/Content/plugins/bootstrap-dialog/js/bootstrap-dialog.js&quot;&gt;&lt;/script&gt;&#xd;
+    &lt;!-- Gauge  --&gt;&#xd;
+    &lt;script src=&quot;/gmg.identity.provider.frontend.web/Content/plugins/gauge/gauge.min.js&quot;&gt;&lt;/script&gt;&#xd;
+    &#xd;
+    &lt;!-- Calendar  --&gt;&#xd;
+    &lt;script src=&quot;/gmg.identity.provider.frontend.web/Content/plugins/gmg/modalExt.js&quot;&gt;&lt;/script&gt;&#xd;
+    &lt;!-- fakeLoader  --&gt;&#xd;
+    &lt;script src=&quot;/gmg.identity.provider.frontend.web/Content/plugins/fakeLoader/js/fakeLoader.js&quot;&gt;&lt;/script&gt;&#xd;
+    &lt;!-- away --&gt;&#xd;
+    &lt;script src=&quot;/gmg.identity.provider.frontend.web/Content/plugins/away/jquery.away.js&quot;&gt;&lt;/script&gt;&#xd;
+    &lt;!-- ajaxloader --&gt;&#xd;
+    &lt;script src=&quot;/gmg.identity.provider.frontend.web/Content/plugins/ajaxloader/ajaxloader.js&quot;&gt;&lt;/script&gt;&#xd;
+    &lt;script src=&quot;/gmg.identity.provider.frontend.web/Content/js/src/utils.js&quot; type=&quot;text/javascript&quot; charset=&quot;ISO-8859-1&quot;&gt;&lt;/script&gt;&#xd;
+    &lt;script src=&quot;/gmg.identity.provider.frontend.web/Content/js/src/msjApp.js&quot; type=&quot;text/javascript&quot; charset=&quot;ISO-8859-1&quot;&gt;&lt;/script&gt;&#xd;
+    &lt;script src=&quot;/gmg.identity.provider.frontend.web/Content/js/src/login/login.js&quot; type=&quot;text/javascript&quot; charset=&quot;ISO-8859-1&quot;&gt;&lt;/script&gt;&#xd;
+    &lt;script type=&quot;text/javascript&quot;&gt;&#xd;
+        login.fnSetReturnUrl(&apos;http://grupom.mqa-labs.com/portal-servicios/inicio.html&apos;, &apos;US?.ThreeLetterISORegionName&apos;);&#xd;
+    &lt;/script&gt;&#xd;
+    &lt;script src=&quot;/gmg.identity.provider.frontend.web/Content/js/src/app.js&quot; type=&quot;text/javascript&quot; charset=&quot;ISO-8859-1&quot;&gt;&lt;/script&gt;&#xd;
+&#xd;
+&#xd;
+&#xd;
+    &lt;!--messageModal--&gt;&#xd;
+    &lt;script src=&quot;/gmg.identity.provider.frontend.web/Content/plugins/ReModal/messageModal.js&quot;&gt;&lt;/script&gt;&#xd;
+&#xd;
+&lt;/body&gt;&#xd;
+&#xd;
+&lt;/html&gt;&#xd;
+&#xd;
+&#xd;
+</responseData>
+  <responseFile class="java.lang.String"></responseFile>
+  <cookies class="java.lang.String"></cookies>
+  <method class="java.lang.String">GET</method>
+  <queryString class="java.lang.String"></queryString>
+  <java.net.URL>https://gmgssodev.azurewebsites.net/Gmg.Identity.Provider.FrontEnd.Web/Login?SiteId=D94F606AB0A04F499764957A453C7846</java.net.URL>
+</httpSample>
+<sample t="0" it="0" lt="0" ct="0" ts="0" s="false" lb="apis.google.com:443" rc="" rm="Remote host closed connection during handshake&#xa;**ensure browser is set to accept the JMeter proxy certificate**" tn="" dt="" de="" by="748" sc="1" ec="1" ng="0" na="0" hn="LENOVO">
+  <responseHeader class="java.lang.String"></responseHeader>
+  <requestHeader class="java.lang.String"></requestHeader>
+  <responseData class="java.lang.String">Non-TEXT response data, cannot record: ()</responseData>
+  <responseFile class="java.lang.String"></responseFile>
+  <samplerData class="java.lang.String">CONNECT apis.google.com:443 HTTP/1.1&#xd;
+</samplerData>
+</sample>
+<sample t="0" it="0" lt="0" ct="0" ts="0" s="false" lb="www.gstatic.com:443" rc="" rm="Remote host closed connection during handshake&#xa;**ensure browser is set to accept the JMeter proxy certificate**" tn="" dt="" de="" by="748" sc="1" ec="1" ng="0" na="0" hn="LENOVO">
+  <responseHeader class="java.lang.String"></responseHeader>
+  <requestHeader class="java.lang.String"></requestHeader>
+  <responseData class="java.lang.String">Non-TEXT response data, cannot record: ()</responseData>
+  <responseFile class="java.lang.String"></responseFile>
+  <samplerData class="java.lang.String">CONNECT www.gstatic.com:443 HTTP/1.1&#xd;
+</samplerData>
+</sample>
+<sample t="0" it="0" lt="0" ct="0" ts="0" s="false" lb="id.google.com.pe:443" rc="" rm="Remote host closed connection during handshake&#xa;**ensure browser is set to accept the JMeter proxy certificate**" tn="" dt="" de="" by="748" sc="1" ec="1" ng="0" na="0" hn="LENOVO">
+  <responseHeader class="java.lang.String"></responseHeader>
+  <requestHeader class="java.lang.String"></requestHeader>
+  <responseData class="java.lang.String">Non-TEXT response data, cannot record: ()</responseData>
+  <responseFile class="java.lang.String"></responseFile>
+  <samplerData class="java.lang.String">CONNECT id.google.com.pe:443 HTTP/1.1&#xd;
+</samplerData>
+</sample>
+<sample t="0" it="0" lt="0" ct="0" ts="0" s="false" lb="www.google.com:443" rc="" rm="Remote host closed connection during handshake&#xa;**ensure browser is set to accept the JMeter proxy certificate**" tn="" dt="" de="" by="748" sc="1" ec="1" ng="0" na="0" hn="LENOVO">
+  <responseHeader class="java.lang.String"></responseHeader>
+  <requestHeader class="java.lang.String"></requestHeader>
+  <responseData class="java.lang.String">Non-TEXT response data, cannot record: ()</responseData>
+  <responseFile class="java.lang.String"></responseFile>
+  <samplerData class="java.lang.String">CONNECT www.google.com:443 HTTP/1.1&#xd;
+</samplerData>
+</sample>
+
+</testResults>
