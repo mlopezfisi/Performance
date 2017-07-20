@@ -1,0 +1,1 @@
+jmeter -n -t D:\Vector\Performance\src\Piloto_JMeter213.jmx -l D:\Vector\Performance\results\report.csv -e -o D:\Vector\Performance\results\htmlreports\ -Jthreads=100 -Jrampup=300 -Jduration=1200 -Jrampdown=300
