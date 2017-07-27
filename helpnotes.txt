@@ -1,7 +1,7 @@
-jmeter -n -t D:\Vector\Performance\src\CRM-baseline.jmx -l D:\Vector\Performance\results\report.csv -e -o D:\Vector\Performance\results\htmlreports\ -Jthreads=500 -Jrampup=300 -Jduration=1200 -Jrampdown=300 -Jthinktimemin=5000 -Jthinktimemax=10000
+jmeter -n -t D:\Vector\Performance\src\CRM-baseline.jmx -l D:\Vector\Performance\results\report.csv -e -o D:\Vector\Performance\results\htmlreports\ -Jthreads=1000 -Jrampup=1200 -Jduration=1800 -Jrampdown=900 -Jthinktimemin=10000 -Jthinktimemax=15000
 
-Nicaragua: RP8795NI / ABC123xyz
-Costa Rica: MM2455CR / ABC123xyz
+Nicaragua: RP8795NI/ABC123xyz
+Costa Rica: MM2455CR/ABC123xyz
 
 https://portalservicios-qa.azurewebsites.net/portal-servicios/inicio.html
 

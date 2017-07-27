@@ -78,7 +78,7 @@ rem https://web.archive.org/web/20090614101951/http://java.sun.com/developer/Tec
 
 rem See the unix startup file for the rationale of the following parameters,
 rem including some tuning recommendations
-set HEAP=-Xms1024m -Xmx1024m
+set HEAP=-Xms3072m -Xmx3072m
 set NEW=-XX:NewSize=128m -XX:MaxNewSize=128m
 set SURVIVOR=-XX:SurvivorRatio=8 -XX:TargetSurvivorRatio=50%
 set TENURING=-XX:MaxTenuringThreshold=2
