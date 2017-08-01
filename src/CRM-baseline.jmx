@@ -25,7 +25,7 @@
           </elementProp>
           <elementProp name="hostname3" elementType="Argument">
             <stringProp name="Argument.name">hostname3</stringProp>
-            <stringProp name="Argument.value">${__property(host3,,corsanywhere.azurewebsites.net)}</stringProp>
+            <stringProp name="Argument.value">${__property(host3,,cors-anywhereqa.azurewebsites.net)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="hostname4" elementType="Argument">
@@ -94,8 +94,8 @@
       <hashTree/>
       <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="Thread Group" enabled="true">
         <collectionProp name="ultimatethreadgroupdata">
-          <collectionProp name="110856373">
-            <stringProp name="118527928">${__property(threads,,1)}</stringProp>
+          <collectionProp name="376246729">
+            <stringProp name="-620567489">${__property(threads,,20)}</stringProp>
             <stringProp name="0">0</stringProp>
             <stringProp name="-884233029">${__property(rampup,,0)}</stringProp>
             <stringProp name="554735673">${__property(duration,,500)}</stringProp>
@@ -112,35 +112,35 @@
         <AuthManager guiclass="AuthPanel" testclass="AuthManager" testname="HTTP Authorization Manager" enabled="true">
           <collectionProp name="AuthManager.auth_list">
             <elementProp name="" elementType="Authorization">
-              <stringProp name="Authorization.url">http://corsanywhere.azurewebsites.net/my322199.crm.ondemand.com:443/sap/bc/srt/scs/sap/querycustomerin1?sap-vhost=my322199.crm.ondemand.com</stringProp>
+              <stringProp name="Authorization.url">http://${hostname3}/my322199.crm.ondemand.com:443/sap/bc/srt/scs/sap/querycustomerin1?sap-vhost=my322199.crm.ondemand.com</stringProp>
               <stringProp name="Authorization.username">_PORTAL_MQA</stringProp>
               <stringProp name="Authorization.password">Inicio01</stringProp>
               <stringProp name="Authorization.domain"></stringProp>
               <stringProp name="Authorization.realm"></stringProp>
             </elementProp>
             <elementProp name="" elementType="Authorization">
-              <stringProp name="Authorization.url">http://corsanywhere.azurewebsites.net/my322199.crm.ondemand.com:443/sap/bc/srt/scs/sap/queryregisteredproductversion2?sap-vhost=my322199.crm.ondemand.com</stringProp>
+              <stringProp name="Authorization.url">http://${hostname3}/my322199.crm.ondemand.com:443/sap/bc/srt/scs/sap/queryregisteredproductversion2?sap-vhost=my322199.crm.ondemand.com</stringProp>
               <stringProp name="Authorization.username">_PORTAL_MQA</stringProp>
               <stringProp name="Authorization.password">Inicio01</stringProp>
               <stringProp name="Authorization.domain"></stringProp>
               <stringProp name="Authorization.realm"></stringProp>
             </elementProp>
             <elementProp name="" elementType="Authorization">
-              <stringProp name="Authorization.url">http://corsanywhere.azurewebsites.net/my322199.crm.ondemand.com:443/sap/bc/srt/scs/sap/manageservicerequestin1</stringProp>
+              <stringProp name="Authorization.url">http://${hostname3}/my322199.crm.ondemand.com:443/sap/bc/srt/scs/sap/manageservicerequestin1</stringProp>
               <stringProp name="Authorization.username">_PORTAL_MQA</stringProp>
               <stringProp name="Authorization.password">Inicio01</stringProp>
               <stringProp name="Authorization.domain"></stringProp>
               <stringProp name="Authorization.realm"></stringProp>
             </elementProp>
             <elementProp name="" elementType="Authorization">
-              <stringProp name="Authorization.url">http://corsanywhere.azurewebsites.net/my322199.crm.ondemand.com:443/sap/bc/srt/scs/sap/queryservicerequestin?sap-vhost=my322199.crm.ondemand.com</stringProp>
+              <stringProp name="Authorization.url">http://${hostname3}/my322199.crm.ondemand.com:443/sap/bc/srt/scs/sap/queryservicerequestin?sap-vhost=my322199.crm.ondemand.com</stringProp>
               <stringProp name="Authorization.username">_PORTAL_MQA</stringProp>
               <stringProp name="Authorization.password">Inicio01</stringProp>
               <stringProp name="Authorization.domain"></stringProp>
               <stringProp name="Authorization.realm"></stringProp>
             </elementProp>
             <elementProp name="" elementType="Authorization">
-              <stringProp name="Authorization.url">http://corsanywhere.azurewebsites.net/my322199.crm.ondemand.com:443/sap/bc/srt/scs/sap/manageservicerequestin1?sap-vhost=my322199.crm.ondemand.com</stringProp>
+              <stringProp name="Authorization.url">http://${hostname3}/my322199.crm.ondemand.com:443/sap/bc/srt/scs/sap/manageservicerequestin1?sap-vhost=my322199.crm.ondemand.com</stringProp>
               <stringProp name="Authorization.username">_PORTAL_MQA</stringProp>
               <stringProp name="Authorization.password">Inicio01</stringProp>
               <stringProp name="Authorization.domain"></stringProp>
