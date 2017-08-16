@@ -10,4 +10,4 @@ https://portalservicios-qa.azurewebsites.net/portal-servicios/inicio.html
 
 http://appcrmservice-qa.azurewebsites.net/portal-contactenos
 
-jmeter -n -t D:\Vector\Performance\src\Portal-Contactenos.jmx -l D:\Vector\Performance\results\report.csv -e -o D:\Vector\Performance\results\htmlreports\ -Jthreads=50 -Jrampup=900 -Jduration=1800 -Jrampdown=600 -Jthinktimemin=10000 -Jthinktimemax=15000
+jmeter -n -t D:\Vector\Performance\src\Portal-Contactenos.jmx -l D:\Vector\Performance\results\report.csv -e -o D:\Vector\Performance\results\htmlreports\ -Jthreads=1000 -Jrampup=900 -Jduration=2500 -Jrampdown=600 -Jthinktimemin=10000 -Jthinktimemax=15000
