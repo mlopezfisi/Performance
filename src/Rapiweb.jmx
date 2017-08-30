@@ -58,7 +58,7 @@
           </elementProp>
           <elementProp name="idCanalVenta" elementType="Argument">
             <stringProp name="Argument.name">idCanalVenta</stringProp>
-            <stringProp name="Argument.value"></stringProp>
+            <stringProp name="Argument.value">96</stringProp>
             <stringProp name="Argument.desc">96=VentaPiso | 297=VentaFerias | 312=VentaExenta | 645=FacturaVentaRepuesto</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
@@ -70,7 +70,7 @@
           </elementProp>
           <elementProp name="idFormaPago" elementType="Argument">
             <stringProp name="Argument.name">idFormaPago</stringProp>
-            <stringProp name="Argument.value">1</stringProp>
+            <stringProp name="Argument.value">5</stringProp>
             <stringProp name="Argument.desc">1=EfectivoColones | 5=Flexipagos</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
@@ -108,19 +108,21 @@
         <stringProp name="ThreadGroup.on_sample_error">startnextloop</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
-          <stringProp name="LoopController.loops">1000000</stringProp>
+          <intProp name="LoopController.loops">-1</intProp>
         </elementProp>
-        <stringProp name="ThreadGroup.num_threads">10</stringProp>
+        <stringProp name="ThreadGroup.num_threads">4</stringProp>
         <stringProp name="ThreadGroup.ramp_time">60</stringProp>
-        <longProp name="ThreadGroup.start_time">1370726934000</longProp>
-        <longProp name="ThreadGroup.end_time">1370726934000</longProp>
-        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <longProp name="ThreadGroup.start_time">1504127100000</longProp>
+        <longProp name="ThreadGroup.end_time">1504209600000</longProp>
+        <boolProp name="ThreadGroup.scheduler">true</boolProp>
         <stringProp name="ThreadGroup.duration"></stringProp>
         <stringProp name="ThreadGroup.delay"></stringProp>
       </ThreadGroup>
       <hashTree>
         <BeanShellSampler guiclass="BeanShellSamplerGui" testclass="BeanShellSampler" testname="BeanShell Sampler" enabled="true">
-          <stringProp name="BeanShellSampler.query">String[] usuarios = new String[]{
+          <stringProp name="BeanShellSampler.query">Random random = new Random();
+
+String[] usuarios = new String[]{
 &quot;CC5289CR&quot;,
 &quot;CM6149CR&quot;,
 &quot;DM3870&quot;,
@@ -133,14 +135,20 @@
 &quot;MM6330CR&quot;,
 &quot;NR3058CR&quot;,
 &quot;PC1788CR&quot;};
-String[] idCanalVentas = new String[]{
+vars.put(&quot;username&quot;,usuarios[random.nextInt(usuarios.length)]);
+
+/*String[] idCanalVentas = new String[]{
 &quot;96&quot;,
 &quot;297&quot;,
 &quot;312&quot;};
+vars.put(&quot;idCanalVenta&quot;,idCanalVentas[random.nextInt(idCanalVentas.length)]);*/
 
-Random random = new Random();
-vars.put(&quot;username&quot;,usuarios[random.nextInt(usuarios.length)]);
-vars.put(&quot;idCanalVenta&quot;,idCanalVentas[random.nextInt(idCanalVentas.length)]);</stringProp>
+//Password = ABC123xyz
+
+String[] idFormaPagos = new String[]{
+&quot;1&quot;,
+&quot;5&quot;};
+vars.put(&quot;idFormaPago&quot;,idFormaPagos[random.nextInt(idFormaPagos.length)]);</stringProp>
           <stringProp name="BeanShellSampler.filename"></stringProp>
           <stringProp name="BeanShellSampler.parameters"></stringProp>
           <boolProp name="BeanShellSampler.resetInterpreter">false</boolProp>
@@ -733,7 +741,7 @@ vars.put(&quot;idCanalVenta&quot;,idCanalVentas[random.nextInt(idCanalVentas.len
               </collectionProp>
             </HeaderManager>
             <hashTree/>
-            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="false">
               <collectionProp name="Asserion.test_strings">
                 <stringProp name="52469">500</stringProp>
               </collectionProp>
@@ -744,7 +752,7 @@ vars.put(&quot;idCanalVenta&quot;,idCanalVentas[random.nextInt(idCanalVentas.len
             <hashTree/>
           </hashTree>
         </hashTree>
-        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Rapiweb" enabled="true">
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Rapiweb" enabled="false">
           <boolProp name="TransactionController.includeTimers">false</boolProp>
           <boolProp name="TransactionController.parent">false</boolProp>
         </TransactionController>
@@ -1070,6 +1078,15 @@ vars.put(&quot;idCanalVenta&quot;,idCanalVentas[random.nextInt(idCanalVentas.len
               </collectionProp>
             </HeaderManager>
             <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="52469">500</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+              <boolProp name="Assertion.assume_success">true</boolProp>
+              <intProp name="Assertion.test_type">6</intProp>
+            </ResponseAssertion>
+            <hashTree/>
           </hashTree>
         </hashTree>
         <BeanShellSampler guiclass="BeanShellSamplerGui" testclass="BeanShellSampler" testname="BeanShell Sampler" enabled="true">
@@ -1186,7 +1203,7 @@ vars.put(&quot;producto&quot;,productos[random.nextInt(productos.length)]);
           <boolProp name="IfController.evaluateAll">false</boolProp>
         </IfController>
         <hashTree>
-          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Cotizador" enabled="true">
+          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Cotizador" enabled="false">
             <boolProp name="TransactionController.includeTimers">false</boolProp>
             <boolProp name="TransactionController.parent">false</boolProp>
           </TransactionController>
@@ -1597,6 +1614,15 @@ vars.put(&quot;producto&quot;,productos[random.nextInt(productos.length)]);
                 </collectionProp>
               </HeaderManager>
               <hashTree/>
+              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+                <collectionProp name="Asserion.test_strings">
+                  <stringProp name="52469">500</stringProp>
+                </collectionProp>
+                <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+                <boolProp name="Assertion.assume_success">true</boolProp>
+                <intProp name="Assertion.test_type">6</intProp>
+              </ResponseAssertion>
+              <hashTree/>
             </hashTree>
             <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="684 /gmg.sapv.frontend.web/Cotizador/Home/ObtenerTiendaActual" enabled="true">
               <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
@@ -1671,6 +1697,15 @@ vars.put(&quot;producto&quot;,productos[random.nextInt(productos.length)]);
                 <stringProp name="RegexExtractor.match_number">1</stringProp>
               </RegexExtractor>
               <hashTree/>
+              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+                <collectionProp name="Asserion.test_strings">
+                  <stringProp name="52469">500</stringProp>
+                </collectionProp>
+                <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+                <boolProp name="Assertion.assume_success">true</boolProp>
+                <intProp name="Assertion.test_type">6</intProp>
+              </ResponseAssertion>
+              <hashTree/>
             </hashTree>
             <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="683 /gmg.sapv.frontend.web/Cotizador/Home/SearchHoraCierreTienda" enabled="true">
               <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
@@ -1736,6 +1771,15 @@ vars.put(&quot;producto&quot;,productos[random.nextInt(productos.length)]);
                 </collectionProp>
               </HeaderManager>
               <hashTree/>
+              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+                <collectionProp name="Asserion.test_strings">
+                  <stringProp name="52469">500</stringProp>
+                </collectionProp>
+                <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+                <boolProp name="Assertion.assume_success">true</boolProp>
+                <intProp name="Assertion.test_type">6</intProp>
+              </ResponseAssertion>
+              <hashTree/>
             </hashTree>
             <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="681 /gmg.sapv.frontend.web/Cotizador/Common/Promocion" enabled="true">
               <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
@@ -1800,6 +1844,15 @@ vars.put(&quot;producto&quot;,productos[random.nextInt(productos.length)]);
                   </elementProp>
                 </collectionProp>
               </HeaderManager>
+              <hashTree/>
+              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+                <collectionProp name="Asserion.test_strings">
+                  <stringProp name="52469">500</stringProp>
+                </collectionProp>
+                <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+                <boolProp name="Assertion.assume_success">true</boolProp>
+                <intProp name="Assertion.test_type">6</intProp>
+              </ResponseAssertion>
               <hashTree/>
             </hashTree>
           </hashTree>
@@ -2941,7 +2994,7 @@ vars.put(&quot;_cuotaTotalPago&quot;, &quot;&quot;+cuotaTotalPago1);
           <boolProp name="IfController.evaluateAll">false</boolProp>
         </IfController>
         <hashTree>
-          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Facturacion" enabled="true">
+          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Facturacion" enabled="false">
             <boolProp name="TransactionController.includeTimers">false</boolProp>
             <boolProp name="TransactionController.parent">false</boolProp>
           </TransactionController>
@@ -3322,16 +3375,6 @@ vars.put(&quot;_cuotaTotalPago&quot;, &quot;&quot;+cuotaTotalPago1);
               <hashTree/>
             </hashTree>
           </hashTree>
-          <IfController guiclass="IfControllerPanel" testclass="IfController" testname="if FormaPago != Flexipagos" enabled="true">
-            <stringProp name="IfController.condition">&quot;${idFormaPago}&quot; != &quot;5&quot;</stringProp>
-            <boolProp name="IfController.evaluateAll">false</boolProp>
-          </IfController>
-          <hashTree/>
-          <IfController guiclass="IfControllerPanel" testclass="IfController" testname="if FormaPago == Flexipagos" enabled="true">
-            <stringProp name="IfController.condition">&quot;${idFormaPago}&quot; == &quot;5&quot;</stringProp>
-            <boolProp name="IfController.evaluateAll">false</boolProp>
-          </IfController>
-          <hashTree/>
           <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="BuscarFacturacion" enabled="true">
             <boolProp name="TransactionController.includeTimers">false</boolProp>
             <boolProp name="TransactionController.parent">false</boolProp>
@@ -3752,6 +3795,24 @@ vars.put(&quot;_cuotaTotalPago&quot;, &quot;&quot;+cuotaTotalPago1);
                 <stringProp name="RegexExtractor.match_number">1</stringProp>
               </RegexExtractor>
               <hashTree/>
+              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Regular Expression Extractor" enabled="true">
+                <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+                <stringProp name="RegexExtractor.refname">_tasaInteresNormal</stringProp>
+                <stringProp name="RegexExtractor.regex">&quot;TasaInteresNormal&quot;:(.*?),</stringProp>
+                <stringProp name="RegexExtractor.template">$1$</stringProp>
+                <stringProp name="RegexExtractor.default"></stringProp>
+                <stringProp name="RegexExtractor.match_number">1</stringProp>
+              </RegexExtractor>
+              <hashTree/>
+              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Regular Expression Extractor" enabled="true">
+                <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+                <stringProp name="RegexExtractor.refname">_cuotaPactada</stringProp>
+                <stringProp name="RegexExtractor.regex">&quot;CuotaPactada&quot;:(.*?),</stringProp>
+                <stringProp name="RegexExtractor.template">$1$</stringProp>
+                <stringProp name="RegexExtractor.default"></stringProp>
+                <stringProp name="RegexExtractor.match_number">1</stringProp>
+              </RegexExtractor>
+              <hashTree/>
               <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor" enabled="true">
                 <stringProp name="filename"></stringProp>
                 <stringProp name="parameters"></stringProp>
@@ -3764,6 +3825,8 @@ vars.put(&quot;_costoUnitario&quot;, &quot;&quot;+Math.round(Double.parseDouble(
 vars.put(&quot;_impuesto&quot;, &quot;&quot;+Math.round(Double.parseDouble(vars.get(&quot;_impuesto&quot;).replaceAll(&quot;,&quot;,&quot;&quot;))));
 vars.put(&quot;_subtotal&quot;, &quot;&quot;+Math.round(Double.parseDouble(vars.get(&quot;_subtotal&quot;).replaceAll(&quot;,&quot;,&quot;&quot;))));
 vars.put(&quot;_total&quot;, &quot;&quot;+Math.round(Double.parseDouble(vars.get(&quot;_total&quot;).replaceAll(&quot;,&quot;,&quot;&quot;))));
+vars.put(&quot;_cuotaPactada&quot;, &quot;&quot;+Math.round(Double.parseDouble(vars.get(&quot;_cuotaPactada&quot;).replaceAll(&quot;,&quot;,&quot;&quot;))));
+vars.put(&quot;_utilidad&quot;, &quot;&quot;+Math.round(Double.parseDouble(vars.get(&quot;_utilidad&quot;).replaceAll(&quot;,&quot;,&quot;&quot;))));
 
 //&quot;FechaDePago&quot;:&quot;2017-08-17T00:00:00.000Z&quot;</stringProp>
               </BeanShellPostProcessor>
@@ -4078,259 +4141,351 @@ vars.put(&quot;_total&quot;, &quot;&quot;+Math.round(Double.parseDouble(vars.get
               <hashTree/>
             </hashTree>
           </hashTree>
-          <DebugSampler guiclass="TestBeanGUI" testclass="DebugSampler" testname="Debug Sampler" enabled="true">
+          <DebugSampler guiclass="TestBeanGUI" testclass="DebugSampler" testname="Debug Sampler" enabled="false">
             <boolProp name="displayJMeterProperties">false</boolProp>
             <boolProp name="displayJMeterVariables">true</boolProp>
             <boolProp name="displaySystemProperties">false</boolProp>
           </DebugSampler>
           <hashTree/>
-          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="CrearFactura" enabled="true">
-            <boolProp name="TransactionController.includeTimers">false</boolProp>
-            <boolProp name="TransactionController.parent">false</boolProp>
-          </TransactionController>
+          <IfController guiclass="IfControllerPanel" testclass="IfController" testname="if FormaPago != Flexipagos" enabled="true">
+            <stringProp name="IfController.condition">&quot;${idFormaPago}&quot; != &quot;5&quot;</stringProp>
+            <boolProp name="IfController.evaluateAll">false</boolProp>
+          </IfController>
           <hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="612 /Gmg.Sapv.FrontEnd.Web/Sapv/Facturacion/CrearFactura" enabled="false">
-              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-                <collectionProp name="Arguments.arguments">
-                  <elementProp name="" elementType="HTTPArgument">
-                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                    <stringProp name="Argument.value">{&quot;model&quot;:{&quot;IdOrdenPedido&quot;:${_idOrdenPedido},&quot;NumeroOrden&quot;:&quot;${_numeroOrden}&quot;,&quot;FechaProceso&quot;:&quot;${_fechaProceso}&quot;,&quot;FechaCreacion&quot;:&quot;${_fechaCreacion}&quot;,&quot;IdTipoVenta&quot;:${_idTipoVenta},&quot;TipoVenta&quot;:&quot;${_tipoVenta}&quot;,&quot;IdOrdenPedidoPadre&quot;:null,&quot;IdTipoOrden&quot;:${_idTipoOrden},&quot;IdConvenio&quot;:null,&quot;IdEstadoOrdenPedido&quot;:7,&quot;FacturaConvenio&quot;:false,&quot;IdTipoIdentificacion&quot;:1,&quot;TipoIdentificacion&quot;:&quot;Cédula&quot;,&quot;IdCanalVenta&quot;:${_idCanalVenta},&quot;CanalVenta&quot;:&quot;${_canalVenta}&quot;,&quot;mIdentificacion&quot;:&quot;${_midentificacion}&quot;,&quot;CodCliente&quot;:null,&quot;PrimerNombre&quot;:&quot;${_primerNombre}&quot;,&quot;PrimerApellido&quot;:&quot;${_primerApellido}&quot;,&quot;SegundoApellido&quot;:&quot;${_segundoApellido}&quot;,&quot;Vendedores&quot;:{&quot;ContentEncoding&quot;:null,&quot;ContentType&quot;:null,&quot;Data&quot;:{&quot;Data&quot;:[{&quot;IdVendedor&quot;:${_idVendedor},&quot;Vendedor&quot;:&quot;${_vendedor}&quot;,&quot;Seleccionado&quot;:true,&quot;FacturaConvenio&quot;:false}],&quot;MessageType&quot;:0,&quot;InfoMessage&quot;:&quot;Proceso efectuado satisfactoriamente&quot;,&quot;ErrorMessage&quot;:&quot;&quot;},&quot;JsonRequestBehavior&quot;:0,&quot;MaxJsonLength&quot;:null,&quot;RecursionLimit&quot;:null},&quot;OrdenPedidoFormaPago&quot;:[],&quot;OrdenPedidoDetalle&quot;:[{&quot;Producto&quot;:{&quot;Nombre&quot;:&quot;${_nombreProducto}&quot;,&quot;IdTipoProducto&quot;:null,&quot;TipoProducto&quot;:&quot;${_tipoProducto}&quot;,&quot;EsExento&quot;:${_esExento},&quot;NumeroSerie&quot;:&quot;No&quot;,&quot;TipoProducto1&quot;:{&quot;IdTipoProducto&quot;:${_idTipoProducto},&quot;FechaCreacion&quot;:&quot;/${_fechaCreacion2}/&quot;,&quot;UsuarioCreacion&quot;:null,&quot;FechaModificacion&quot;:null,&quot;UsuarioModificacion&quot;:null,&quot;Nombre&quot;:null,&quot;Descripcion&quot;:null,&quot;EsServicio&quot;:false,&quot;Llave&quot;:&quot;${_tipoProducto}&quot;,&quot;Activo&quot;:false,&quot;Producto&quot;:[],&quot;Action&quot;:null,&quot;MessageId&quot;:null,&quot;MessageSerializationMode&quot;:0,&quot;MessageSessionId&quot;:null,&quot;MessageStatus&quot;:0,&quot;MessageProperties&quot;:null,&quot;ExtendedProporeties&quot;:null},&quot;EsServicio&quot;:false,&quot;ExtendedProporeties&quot;:[{&quot;Key&quot;:&quot;EsServicio&quot;,&quot;Value&quot;:false}]},&quot;Bodega&quot;:&quot;${_bodega}&quot;,&quot;Sku&quot;:&quot;${_sku}&quot;,&quot;Nombre&quot;:&quot;${_nombreProducto}&quot;,&quot;Serie&quot;:&quot;&quot;,&quot;Cantidad&quot;:${_cantidad},&quot;PrecioUnitario&quot;:${_precioUnitario},&quot;Descuento&quot;:${_descuento},&quot;MontoNeto&quot;:${_montoNeto},&quot;ExtragarantiaAplicada&quot;:${_extragarantiaAplicada},&quot;ValorEG&quot;:0,&quot;PlazoExtragarantia&quot;:0,&quot;AplicaSerie&quot;:false,&quot;SeguroObligatorio&quot;:false,&quot;IdOrdenPedidoDetalle&quot;:${_idOrdenPedidoDetalle},&quot;CodigoBodegaSAPV&quot;:&quot;01&quot;,&quot;IdBodega&quot;:1,&quot;IdProducto&quot;:${_idProducto},&quot;CostoUnitario&quot;:${_costoUnitario},&quot;Impuesto&quot;:${_impuesto},&quot;IdLlave&quot;:null,&quot;IdCombo&quot;:0,&quot;EsCombo&quot;:false,&quot;TasaImpuesto&quot;:0,&quot;Utilidad&quot;:${_utilidad},&quot;IdTipoCatalogoProducto&quot;:1,&quot;NumeroLinea&quot;:1,&quot;Subtotal&quot;:${_subtotal},&quot;Total&quot;:${_total},&quot;MontoRetencion&quot;:0}],&quot;VentaSubtotal&quot;:${_subtotal},&quot;VentaDescuento&quot;:0,&quot;VentaImpuestos&quot;:${_impuesto},&quot;VentaTotal&quot;:${_total},&quot;EGImpuestos&quot;:0,&quot;EGMensualidad&quot;:0,&quot;ApartadoAdelanto&quot;:0,&quot;ApartadoPlazo&quot;:0,&quot;ValorApartadoPlazo&quot;:0,&quot;ApartadoInteres&quot;:0,&quot;ApartadoMensualidad&quot;:${_apartadoMensualidad},&quot;ApartadoTotal&quot;:${_total},&quot;NumManual&quot;:null,&quot;NumDocFisico&quot;:null,&quot;Observacion&quot;:&quot;&quot;,&quot;Observaciones&quot;:null,&quot;IdFormaPago&quot;:${idFormaPago},&quot;Adelanto&quot;:0,&quot;IdPersona&quot;:${_idPersona},&quot;IdTienda&quot;:${_idTienda},&quot;IdTiendaRetiro&quot;:${_idTienda},&quot;IdTipoDescuento&quot;:null,&quot;IdUsuAproDes&quot;:0,&quot;Identificacion&quot;:&quot;${_midentificacion}&quot;,&quot;NumeroTarjeta&quot;:&quot;Cotizador&quot;,&quot;Plazo&quot;:0,&quot;TasaImpuesto&quot;:0,&quot;TasaInteresMora&quot;:0,&quot;TasaInteresNormal&quot;:0,&quot;MontoCompra&quot;:${_subtotal},&quot;Prima&quot;:0,&quot;Descuento&quot;:0,&quot;Impuesto&quot;:${_impuesto},&quot;MontoFinanciado&quot;:0,&quot;TotalCompra&quot;:${_total},&quot;CuotaPactada&quot;:0,&quot;Utilidad&quot;:${_utilidad},&quot;IdPromocion&quot;:null,&quot;IdCuenta&quot;:${_idCuenta},&quot;CodigoMoneda&quot;:null,&quot;IdVendedor&quot;:${_idVendedor},&quot;IdClientePdv&quot;:${_idClientePdv},&quot;MontoRetencion&quot;:0,&quot;MontoAutorizado&quot;:0,&quot;IdSegmento&quot;:null,&quot;FormaPagoDetalle&quot;:[{&quot;IdTipoTransaccion&quot;:1,&quot;IdFormaPago&quot;:1,&quot;IdPromocion&quot;:0,&quot;IdMoneda&quot;:1,&quot;Referencia&quot;:null,&quot;NumeroFormaPago&quot;:null,&quot;Monto&quot;:${_total},&quot;MontoCambioCompra&quot;:${_montoCambioCompra},&quot;MontoCambioVenta&quot;:${_montoCambioVenta},&quot;MontoExtranjero&quot;:0,&quot;Vouchers&quot;:[],&quot;FormaPago&quot;:{&quot;Orden&quot;:1},&quot;IdOrdenPedido&quot;:${_idOrdenPedido}}],&quot;ExtendedProporeties&quot;:[{&quot;Key&quot;:${_idOrdenPedidoDetalle},&quot;Value&quot;:&quot;&quot;},{&quot;key&quot;:&quot;MontoCambio&quot;,&quot;value&quot;:0}],&quot;Factura&quot;:[{&quot;FacturaDetalleSeguro&quot;:[]}]}}</stringProp>
-                    <stringProp name="Argument.metadata">=</stringProp>
-                  </elementProp>
-                </collectionProp>
-              </elementProp>
-              <stringProp name="HTTPSampler.domain">${hostname2}</stringProp>
-              <stringProp name="HTTPSampler.port">443</stringProp>
-              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-              <stringProp name="HTTPSampler.response_timeout"></stringProp>
-              <stringProp name="HTTPSampler.protocol">https</stringProp>
-              <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
-              <stringProp name="HTTPSampler.path">/Gmg.Sapv.FrontEnd.Web/Sapv/Facturacion/CrearFactura</stringProp>
-              <stringProp name="HTTPSampler.method">POST</stringProp>
-              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-              <boolProp name="HTTPSampler.monitor">false</boolProp>
-              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-            </HTTPSamplerProxy>
+            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="CrearFactura" enabled="true">
+              <boolProp name="TransactionController.includeTimers">false</boolProp>
+              <boolProp name="TransactionController.parent">false</boolProp>
+            </TransactionController>
             <hashTree>
-              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
-                <collectionProp name="HeaderManager.headers">
-                  <elementProp name="Referer" elementType="Header">
-                    <stringProp name="Header.name">Referer</stringProp>
-                    <stringProp name="Header.value">https://${hostname2}/Gmg.Sapv.FrontEnd.Web/Sapv/</stringProp>
-                  </elementProp>
-                  <elementProp name="Accept-Language" elementType="Header">
-                    <stringProp name="Header.name">Accept-Language</stringProp>
-                    <stringProp name="Header.value">en-US,en;q=0.8</stringProp>
-                  </elementProp>
-                  <elementProp name="Origin" elementType="Header">
-                    <stringProp name="Header.name">Origin</stringProp>
-                    <stringProp name="Header.value">https://${hostname2}</stringProp>
-                  </elementProp>
-                  <elementProp name="Accept" elementType="Header">
-                    <stringProp name="Header.name">Accept</stringProp>
-                    <stringProp name="Header.value">application/json, text/javascript, */*; q=0.01</stringProp>
-                  </elementProp>
-                  <elementProp name="X-Requested-With" elementType="Header">
-                    <stringProp name="Header.name">X-Requested-With</stringProp>
-                    <stringProp name="Header.value">XMLHttpRequest</stringProp>
-                  </elementProp>
-                  <elementProp name="Content-Type" elementType="Header">
-                    <stringProp name="Header.name">Content-Type</stringProp>
-                    <stringProp name="Header.value">application/json; charset=UTF-8</stringProp>
-                  </elementProp>
-                  <elementProp name="Accept-Encoding" elementType="Header">
-                    <stringProp name="Header.name">Accept-Encoding</stringProp>
-                    <stringProp name="Header.value">gzip, deflate, br</stringProp>
-                  </elementProp>
-                  <elementProp name="User-Agent" elementType="Header">
-                    <stringProp name="Header.name">User-Agent</stringProp>
-                    <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.101 Safari/537.36</stringProp>
-                  </elementProp>
-                </collectionProp>
-              </HeaderManager>
-              <hashTree/>
-              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
-                <collectionProp name="Asserion.test_strings">
-                  <stringProp name="-136513041">&quot;InfoMessage&quot;:&quot;El registro se ha guardado satisfactoriamente.&quot;,</stringProp>
-                </collectionProp>
-                <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
-                <boolProp name="Assertion.assume_success">false</boolProp>
-                <intProp name="Assertion.test_type">2</intProp>
-              </ResponseAssertion>
-              <hashTree/>
-              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Regular Expression Extractor" enabled="true">
-                <stringProp name="RegexExtractor.useHeaders">false</stringProp>
-                <stringProp name="RegexExtractor.refname">_idFactura</stringProp>
-                <stringProp name="RegexExtractor.regex">&quot;IdFactura&quot;:(.*?),</stringProp>
-                <stringProp name="RegexExtractor.template">$1$</stringProp>
-                <stringProp name="RegexExtractor.default"></stringProp>
-                <stringProp name="RegexExtractor.match_number">1</stringProp>
-              </RegexExtractor>
-              <hashTree/>
-            </hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="612 /Gmg.Sapv.FrontEnd.Web/Sapv/Facturacion/CrearFactura" enabled="true">
-              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-                <collectionProp name="Arguments.arguments">
-                  <elementProp name="" elementType="HTTPArgument">
-                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                    <stringProp name="Argument.value">{&quot;model&quot;:{&quot;IdOrdenPedido&quot;:${_idOrdenPedido},&quot;NumeroOrden&quot;:&quot;${_numeroOrden}&quot;,&quot;FechaProceso&quot;:&quot;${_fechaProceso}&quot;,&quot;FechaCreacion&quot;:&quot;${_fechaCreacion}&quot;,&quot;IdTipoVenta&quot;:${_idTipoVenta},&quot;TipoVenta&quot;:&quot;${_tipoVenta}&quot;,&quot;IdOrdenPedidoPadre&quot;:null,&quot;IdTipoOrden&quot;:${_idTipoOrden},&quot;IdConvenio&quot;:null,&quot;IdEstadoOrdenPedido&quot;:7,&quot;FacturaConvenio&quot;:false,&quot;IdTipoIdentificacion&quot;:1,&quot;TipoIdentificacion&quot;:&quot;Cédula&quot;,&quot;IdCanalVenta&quot;:${_idCanalVenta},&quot;CanalVenta&quot;:&quot;${_canalVenta}&quot;,&quot;mIdentificacion&quot;:&quot;${_midentificacion}&quot;,&quot;CodCliente&quot;:null,&quot;PrimerNombre&quot;:&quot;${_primerNombre}&quot;,&quot;PrimerApellido&quot;:&quot;${_primerApellido}&quot;,&quot;SegundoApellido&quot;:&quot;${_segundoApellido}&quot;,&quot;Vendedores&quot;:{&quot;ContentEncoding&quot;:null,&quot;ContentType&quot;:null,&quot;Data&quot;:{&quot;Data&quot;:[],&quot;MessageType&quot;:0,&quot;InfoMessage&quot;:&quot;Proceso efectuado satisfactoriamente&quot;,&quot;ErrorMessage&quot;:&quot;&quot;},&quot;JsonRequestBehavior&quot;:0,&quot;MaxJsonLength&quot;:null,&quot;RecursionLimit&quot;:null},&quot;OrdenPedidoFormaPago&quot;:[],&quot;OrdenPedidoDetalle&quot;:[{&quot;Producto&quot;:{&quot;Nombre&quot;:&quot;${_nombreProducto}&quot;,&quot;IdTipoProducto&quot;:null,&quot;TipoProducto&quot;:&quot;${_tipoProducto}&quot;,&quot;EsExento&quot;:${_esExento},&quot;NumeroSerie&quot;:&quot;No&quot;,&quot;TipoProducto1&quot;:{&quot;IdTipoProducto&quot;:${_idTipoProducto},&quot;FechaCreacion&quot;:&quot;/${_fechaCreacion2}/&quot;,&quot;UsuarioCreacion&quot;:null,&quot;FechaModificacion&quot;:null,&quot;UsuarioModificacion&quot;:null,&quot;Nombre&quot;:null,&quot;Descripcion&quot;:null,&quot;EsServicio&quot;:false,&quot;Llave&quot;:&quot;${_tipoProducto}&quot;,&quot;Activo&quot;:false,&quot;Producto&quot;:[],&quot;Action&quot;:null,&quot;MessageId&quot;:null,&quot;MessageSerializationMode&quot;:0,&quot;MessageSessionId&quot;:null,&quot;MessageStatus&quot;:0,&quot;MessageProperties&quot;:null,&quot;ExtendedProporeties&quot;:null},&quot;EsServicio&quot;:false,&quot;ExtendedProporeties&quot;:[{&quot;Key&quot;:&quot;EsServicio&quot;,&quot;Value&quot;:false}]},&quot;Bodega&quot;:&quot;${_bodega}&quot;,&quot;Sku&quot;:&quot;${_sku}&quot;,&quot;Nombre&quot;:&quot;${_nombreProducto}&quot;,&quot;Serie&quot;:&quot;&quot;,&quot;Cantidad&quot;:${_cantidad},&quot;PrecioUnitario&quot;:${_precioUnitario},&quot;Descuento&quot;:${_descuento},&quot;MontoNeto&quot;:${_montoNeto},&quot;ExtragarantiaAplicada&quot;:${_extragarantiaAplicada},&quot;ValorEG&quot;:0,&quot;PlazoExtragarantia&quot;:0,&quot;AplicaSerie&quot;:false,&quot;SeguroObligatorio&quot;:false,&quot;IdOrdenPedidoDetalle&quot;:${_idOrdenPedidoDetalle},&quot;CodigoBodegaSAPV&quot;:&quot;01&quot;,&quot;IdBodega&quot;:1,&quot;IdProducto&quot;:${_idProducto},&quot;CostoUnitario&quot;:${_costoUnitario},&quot;Impuesto&quot;:${_impuesto},&quot;IdLlave&quot;:null,&quot;IdCombo&quot;:0,&quot;EsCombo&quot;:false,&quot;TasaImpuesto&quot;:0,&quot;Utilidad&quot;:${_utilidad},&quot;IdTipoCatalogoProducto&quot;:1,&quot;NumeroLinea&quot;:1,&quot;Subtotal&quot;:${_subtotal},&quot;Total&quot;:${_total},&quot;MontoRetencion&quot;:0}],&quot;VentaSubtotal&quot;:${_subtotal},&quot;VentaDescuento&quot;:0,&quot;VentaImpuestos&quot;:${_impuesto},&quot;VentaTotal&quot;:${_total},&quot;EGImpuestos&quot;:0,&quot;EGMensualidad&quot;:0,&quot;ApartadoAdelanto&quot;:0,&quot;ApartadoPlazo&quot;:0,&quot;ValorApartadoPlazo&quot;:0,&quot;ApartadoInteres&quot;:0,&quot;ApartadoMensualidad&quot;:${_apartadoMensualidad},&quot;ApartadoTotal&quot;:${_total},&quot;NumManual&quot;:null,&quot;NumDocFisico&quot;:null,&quot;Observacion&quot;:&quot;&quot;,&quot;Observaciones&quot;:null,&quot;IdFormaPago&quot;:${idFormaPago},&quot;Adelanto&quot;:0,&quot;IdPersona&quot;:${_idPersona},&quot;IdTienda&quot;:${_idTienda},&quot;IdTiendaRetiro&quot;:${_idTienda},&quot;IdTipoDescuento&quot;:null,&quot;IdUsuAproDes&quot;:0,&quot;Identificacion&quot;:&quot;${_midentificacion}&quot;,&quot;NumeroTarjeta&quot;:&quot;Cotizador&quot;,&quot;Plazo&quot;:0,&quot;TasaImpuesto&quot;:0,&quot;TasaInteresMora&quot;:0,&quot;TasaInteresNormal&quot;:0,&quot;MontoCompra&quot;:${_subtotal},&quot;Prima&quot;:0,&quot;Descuento&quot;:0,&quot;Impuesto&quot;:${_impuesto},&quot;MontoFinanciado&quot;:0,&quot;TotalCompra&quot;:${_total},&quot;CuotaPactada&quot;:0,&quot;Utilidad&quot;:${_utilidad},&quot;IdPromocion&quot;:null,&quot;IdCuenta&quot;:${_idCuenta},&quot;CodigoMoneda&quot;:null,&quot;IdVendedor&quot;:${_idVendedor},&quot;IdClientePdv&quot;:${_idClientePdv},&quot;MontoRetencion&quot;:0,&quot;MontoAutorizado&quot;:0,&quot;IdSegmento&quot;:null,&quot;FormaPagoDetalle&quot;:[{&quot;IdTipoTransaccion&quot;:1,&quot;IdFormaPago&quot;:${idFormaPago},&quot;IdPromocion&quot;:0,&quot;IdMoneda&quot;:1,&quot;Referencia&quot;:null,&quot;NumeroFormaPago&quot;:null,&quot;Monto&quot;:${_total},&quot;MontoCambioCompra&quot;:${_montoCambioCompra},&quot;MontoCambioVenta&quot;:${_montoCambioVenta},&quot;MontoExtranjero&quot;:0,&quot;Vouchers&quot;:[],&quot;FormaPago&quot;:{&quot;Orden&quot;:1},&quot;IdOrdenPedido&quot;:${_idOrdenPedido}}],&quot;ExtendedProporeties&quot;:[{&quot;Key&quot;:${_idOrdenPedidoDetalle},&quot;Value&quot;:&quot;&quot;},{&quot;key&quot;:&quot;MontoCambio&quot;,&quot;value&quot;:0}],&quot;Factura&quot;:[{&quot;FacturaDetalleSeguro&quot;:[]}]}}</stringProp>
-                    <stringProp name="Argument.metadata">=</stringProp>
-                  </elementProp>
-                </collectionProp>
-              </elementProp>
-              <stringProp name="HTTPSampler.domain">${hostname2}</stringProp>
-              <stringProp name="HTTPSampler.port">443</stringProp>
-              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-              <stringProp name="HTTPSampler.response_timeout"></stringProp>
-              <stringProp name="HTTPSampler.protocol">https</stringProp>
-              <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
-              <stringProp name="HTTPSampler.path">/Gmg.Sapv.FrontEnd.Web/Sapv/Facturacion/CrearFactura</stringProp>
-              <stringProp name="HTTPSampler.method">POST</stringProp>
-              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-              <boolProp name="HTTPSampler.monitor">false</boolProp>
-              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-            </HTTPSamplerProxy>
-            <hashTree>
-              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
-                <collectionProp name="HeaderManager.headers">
-                  <elementProp name="Referer" elementType="Header">
-                    <stringProp name="Header.name">Referer</stringProp>
-                    <stringProp name="Header.value">https://${hostname2}/Gmg.Sapv.FrontEnd.Web/Sapv/</stringProp>
-                  </elementProp>
-                  <elementProp name="Accept-Language" elementType="Header">
-                    <stringProp name="Header.name">Accept-Language</stringProp>
-                    <stringProp name="Header.value">en-US,en;q=0.8</stringProp>
-                  </elementProp>
-                  <elementProp name="Origin" elementType="Header">
-                    <stringProp name="Header.name">Origin</stringProp>
-                    <stringProp name="Header.value">https://${hostname2}</stringProp>
-                  </elementProp>
-                  <elementProp name="Accept" elementType="Header">
-                    <stringProp name="Header.name">Accept</stringProp>
-                    <stringProp name="Header.value">application/json, text/javascript, */*; q=0.01</stringProp>
-                  </elementProp>
-                  <elementProp name="X-Requested-With" elementType="Header">
-                    <stringProp name="Header.name">X-Requested-With</stringProp>
-                    <stringProp name="Header.value">XMLHttpRequest</stringProp>
-                  </elementProp>
-                  <elementProp name="Content-Type" elementType="Header">
-                    <stringProp name="Header.name">Content-Type</stringProp>
-                    <stringProp name="Header.value">application/json; charset=UTF-8</stringProp>
-                  </elementProp>
-                  <elementProp name="Accept-Encoding" elementType="Header">
-                    <stringProp name="Header.name">Accept-Encoding</stringProp>
-                    <stringProp name="Header.value">gzip, deflate, br</stringProp>
-                  </elementProp>
-                  <elementProp name="User-Agent" elementType="Header">
-                    <stringProp name="Header.name">User-Agent</stringProp>
-                    <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.101 Safari/537.36</stringProp>
-                  </elementProp>
-                </collectionProp>
-              </HeaderManager>
-              <hashTree/>
-              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
-                <collectionProp name="Asserion.test_strings">
-                  <stringProp name="-136513041">&quot;InfoMessage&quot;:&quot;El registro se ha guardado satisfactoriamente.&quot;,</stringProp>
-                </collectionProp>
-                <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
-                <boolProp name="Assertion.assume_success">false</boolProp>
-                <intProp name="Assertion.test_type">2</intProp>
-              </ResponseAssertion>
-              <hashTree/>
-              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Regular Expression Extractor" enabled="true">
-                <stringProp name="RegexExtractor.useHeaders">false</stringProp>
-                <stringProp name="RegexExtractor.refname">_idFactura</stringProp>
-                <stringProp name="RegexExtractor.regex">&quot;IdFactura&quot;:(.*?),</stringProp>
-                <stringProp name="RegexExtractor.template">$1$</stringProp>
-                <stringProp name="RegexExtractor.default"></stringProp>
-                <stringProp name="RegexExtractor.match_number">1</stringProp>
-              </RegexExtractor>
-              <hashTree/>
-            </hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="613 /Gmg.Sapv.FrontEnd.Web/Sapv/Reportes/VerTicketContado" enabled="true">
-              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-                <collectionProp name="Arguments.arguments">
-                  <elementProp name="" elementType="HTTPArgument">
-                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                    <stringProp name="Argument.value">{&quot;IdFactura&quot;:${_idFactura},&quot;IdPersona&quot;:${_idPersona},&quot;ExtendedProporeties&quot;:[{&quot;Key&quot;:&quot;reportName&quot;,&quot;Value&quot;:&quot;rptFacturaVentas&quot;}]}</stringProp>
-                    <stringProp name="Argument.metadata">=</stringProp>
-                  </elementProp>
-                </collectionProp>
-              </elementProp>
-              <stringProp name="HTTPSampler.domain">${hostname2}</stringProp>
-              <stringProp name="HTTPSampler.port">443</stringProp>
-              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-              <stringProp name="HTTPSampler.response_timeout"></stringProp>
-              <stringProp name="HTTPSampler.protocol">https</stringProp>
-              <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
-              <stringProp name="HTTPSampler.path">/Gmg.Sapv.FrontEnd.Web/Sapv/Reportes/VerTicketContado</stringProp>
-              <stringProp name="HTTPSampler.method">POST</stringProp>
-              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-              <boolProp name="HTTPSampler.monitor">false</boolProp>
-              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-            </HTTPSamplerProxy>
-            <hashTree>
-              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
-                <collectionProp name="HeaderManager.headers">
-                  <elementProp name="Referer" elementType="Header">
-                    <stringProp name="Header.name">Referer</stringProp>
-                    <stringProp name="Header.value">https://${hostname2}/Gmg.Sapv.FrontEnd.Web/Sapv/</stringProp>
-                  </elementProp>
-                  <elementProp name="Accept-Language" elementType="Header">
-                    <stringProp name="Header.name">Accept-Language</stringProp>
-                    <stringProp name="Header.value">en-US,en;q=0.8</stringProp>
-                  </elementProp>
-                  <elementProp name="Origin" elementType="Header">
-                    <stringProp name="Header.name">Origin</stringProp>
-                    <stringProp name="Header.value">https://${hostname2}</stringProp>
-                  </elementProp>
-                  <elementProp name="Accept" elementType="Header">
-                    <stringProp name="Header.name">Accept</stringProp>
-                    <stringProp name="Header.value">application/json, text/javascript, */*; q=0.01</stringProp>
-                  </elementProp>
-                  <elementProp name="X-Requested-With" elementType="Header">
-                    <stringProp name="Header.name">X-Requested-With</stringProp>
-                    <stringProp name="Header.value">XMLHttpRequest</stringProp>
-                  </elementProp>
-                  <elementProp name="Content-Type" elementType="Header">
-                    <stringProp name="Header.name">Content-Type</stringProp>
-                    <stringProp name="Header.value">application/json; charset=UTF-8</stringProp>
-                  </elementProp>
-                  <elementProp name="Accept-Encoding" elementType="Header">
-                    <stringProp name="Header.name">Accept-Encoding</stringProp>
-                    <stringProp name="Header.value">gzip, deflate, br</stringProp>
-                  </elementProp>
-                  <elementProp name="User-Agent" elementType="Header">
-                    <stringProp name="Header.name">User-Agent</stringProp>
-                    <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.101 Safari/537.36</stringProp>
-                  </elementProp>
-                </collectionProp>
-              </HeaderManager>
-              <hashTree/>
-              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
-                <collectionProp name="Asserion.test_strings">
-                  <stringProp name="-59758292">&quot;InfoMessage&quot;:&quot;Proceso efectuado satisfactoriamente.&quot;,</stringProp>
-                </collectionProp>
-                <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
-                <boolProp name="Assertion.assume_success">false</boolProp>
-                <intProp name="Assertion.test_type">2</intProp>
-              </ResponseAssertion>
-              <hashTree/>
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="612 /Gmg.Sapv.FrontEnd.Web/Sapv/Facturacion/CrearFactura [Contado]" enabled="true">
+                <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+                <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                  <collectionProp name="Arguments.arguments">
+                    <elementProp name="" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.value">{&quot;model&quot;:{&quot;IdOrdenPedido&quot;:${_idOrdenPedido},&quot;NumeroOrden&quot;:&quot;${_numeroOrden}&quot;,&quot;FechaProceso&quot;:&quot;${_fechaProceso}&quot;,&quot;FechaCreacion&quot;:&quot;${_fechaCreacion}&quot;,&quot;IdTipoVenta&quot;:${_idTipoVenta},&quot;TipoVenta&quot;:&quot;${_tipoVenta}&quot;,&quot;IdOrdenPedidoPadre&quot;:null,&quot;IdTipoOrden&quot;:${_idTipoOrden},&quot;IdConvenio&quot;:null,&quot;IdEstadoOrdenPedido&quot;:7,&quot;FacturaConvenio&quot;:false,&quot;IdTipoIdentificacion&quot;:1,&quot;TipoIdentificacion&quot;:&quot;Cédula&quot;,&quot;IdCanalVenta&quot;:${_idCanalVenta},&quot;CanalVenta&quot;:&quot;${_canalVenta}&quot;,&quot;mIdentificacion&quot;:&quot;${_midentificacion}&quot;,&quot;CodCliente&quot;:null,&quot;PrimerNombre&quot;:&quot;${_primerNombre}&quot;,&quot;PrimerApellido&quot;:&quot;${_primerApellido}&quot;,&quot;SegundoApellido&quot;:&quot;${_segundoApellido}&quot;,&quot;Vendedores&quot;:{&quot;ContentEncoding&quot;:null,&quot;ContentType&quot;:null,&quot;Data&quot;:{&quot;Data&quot;:[{&quot;IdVendedor&quot;:${_idVendedor},&quot;Vendedor&quot;:&quot;Cristopher Campos Mayorga&quot;,&quot;Seleccionado&quot;:true,&quot;FacturaConvenio&quot;:false}],&quot;MessageType&quot;:0,&quot;InfoMessage&quot;:&quot;Proceso efectuado satisfactoriamente&quot;,&quot;ErrorMessage&quot;:&quot;&quot;},&quot;JsonRequestBehavior&quot;:0,&quot;MaxJsonLength&quot;:null,&quot;RecursionLimit&quot;:null},&quot;OrdenPedidoFormaPago&quot;:[],&quot;OrdenPedidoDetalle&quot;:[{&quot;Producto&quot;:{&quot;Nombre&quot;:&quot;${_nombreProducto}&quot;,&quot;IdTipoProducto&quot;:null,&quot;TipoProducto&quot;:&quot;${_tipoProducto}&quot;,&quot;EsExento&quot;:${_esExento},&quot;NumeroSerie&quot;:&quot;No&quot;,&quot;TipoProducto1&quot;:{&quot;IdTipoProducto&quot;:${_idTipoProducto},&quot;FechaCreacion&quot;:&quot;/${_fechaCreacion2}/&quot;,&quot;UsuarioCreacion&quot;:null,&quot;FechaModificacion&quot;:null,&quot;UsuarioModificacion&quot;:null,&quot;Nombre&quot;:null,&quot;Descripcion&quot;:null,&quot;EsServicio&quot;:false,&quot;Llave&quot;:&quot;${_tipoProducto}&quot;,&quot;Activo&quot;:false,&quot;Producto&quot;:[],&quot;Action&quot;:null,&quot;MessageId&quot;:null,&quot;MessageSerializationMode&quot;:0,&quot;MessageSessionId&quot;:null,&quot;MessageStatus&quot;:0,&quot;MessageProperties&quot;:null,&quot;ExtendedProporeties&quot;:null},&quot;EsServicio&quot;:false,&quot;ExtendedProporeties&quot;:[{&quot;Key&quot;:&quot;EsServicio&quot;,&quot;Value&quot;:false}]},&quot;Bodega&quot;:&quot;${_bodega}&quot;,&quot;Sku&quot;:&quot;${_sku}&quot;,&quot;Nombre&quot;:&quot;${_nombreProducto}&quot;,&quot;Serie&quot;:&quot;&quot;,&quot;Cantidad&quot;:${_cantidad},&quot;PrecioUnitario&quot;:${_precioUnitario},&quot;Descuento&quot;:${_descuento},&quot;MontoNeto&quot;:${_montoNeto},&quot;ExtragarantiaAplicada&quot;:${_extragarantiaAplicada},&quot;ValorEG&quot;:0,&quot;PlazoExtragarantia&quot;:0,&quot;AplicaSerie&quot;:false,&quot;SeguroObligatorio&quot;:false,&quot;IdOrdenPedidoDetalle&quot;:${_idOrdenPedidoDetalle},&quot;CodigoBodegaSAPV&quot;:&quot;01&quot;,&quot;IdBodega&quot;:1,&quot;IdProducto&quot;:${_idProducto},&quot;CostoUnitario&quot;:${_costoUnitario},&quot;Impuesto&quot;:${_impuesto},&quot;IdLlave&quot;:null,&quot;IdCombo&quot;:0,&quot;EsCombo&quot;:false,&quot;TasaImpuesto&quot;:0,&quot;Utilidad&quot;:${_utilidad},&quot;IdTipoCatalogoProducto&quot;:1,&quot;NumeroLinea&quot;:1,&quot;Subtotal&quot;:${_subtotal},&quot;Total&quot;:${_total},&quot;MontoRetencion&quot;:0}],&quot;VentaSubtotal&quot;:${_subtotal},&quot;VentaDescuento&quot;:0,&quot;VentaImpuestos&quot;:${_impuesto},&quot;VentaTotal&quot;:${_total},&quot;EGImpuestos&quot;:0,&quot;EGMensualidad&quot;:0,&quot;ApartadoAdelanto&quot;:0,&quot;ApartadoPlazo&quot;:0,&quot;ValorApartadoPlazo&quot;:0,&quot;ApartadoInteres&quot;:0,&quot;ApartadoMensualidad&quot;:${_apartadoMensualidad},&quot;ApartadoTotal&quot;:${_total},&quot;NumManual&quot;:null,&quot;NumDocFisico&quot;:null,&quot;Observacion&quot;:&quot;&quot;,&quot;Observaciones&quot;:null,&quot;IdFormaPago&quot;:${idFormaPago},&quot;Adelanto&quot;:0,&quot;IdPersona&quot;:${_idPersona},&quot;IdTienda&quot;:${_idTienda},&quot;IdTiendaRetiro&quot;:${_idTienda},&quot;IdTipoDescuento&quot;:null,&quot;IdUsuAproDes&quot;:0,&quot;Identificacion&quot;:&quot;${_midentificacion}&quot;,&quot;NumeroTarjeta&quot;:&quot;Cotizador&quot;,&quot;Plazo&quot;:0,&quot;TasaImpuesto&quot;:0,&quot;TasaInteresMora&quot;:0,&quot;TasaInteresNormal&quot;:0,&quot;MontoCompra&quot;:${_subtotal},&quot;Prima&quot;:0,&quot;Descuento&quot;:0,&quot;Impuesto&quot;:${_impuesto},&quot;MontoFinanciado&quot;:0,&quot;TotalCompra&quot;:${_total},&quot;CuotaPactada&quot;:0,&quot;Utilidad&quot;:${_utilidad},&quot;IdPromocion&quot;:null,&quot;IdCuenta&quot;:${_idCuenta},&quot;CodigoMoneda&quot;:null,&quot;IdVendedor&quot;:${_idVendedor},&quot;IdClientePdv&quot;:${_idClientePdv},&quot;MontoRetencion&quot;:0,&quot;MontoAutorizado&quot;:0,&quot;IdSegmento&quot;:null,&quot;FormaPagoDetalle&quot;:[{&quot;IdTipoTransaccion&quot;:1,&quot;IdFormaPago&quot;:${idFormaPago},&quot;IdPromocion&quot;:0,&quot;IdMoneda&quot;:1,&quot;Referencia&quot;:null,&quot;NumeroFormaPago&quot;:null,&quot;Monto&quot;:${_total},&quot;MontoCambioCompra&quot;:${_montoCambioCompra},&quot;MontoCambioVenta&quot;:${_montoCambioVenta},&quot;MontoExtranjero&quot;:0,&quot;Vouchers&quot;:[],&quot;FormaPago&quot;:{&quot;Orden&quot;:1},&quot;IdOrdenPedido&quot;:${_idOrdenPedido}}],&quot;ExtendedProporeties&quot;:[{&quot;Key&quot;:${_idOrdenPedidoDetalle},&quot;Value&quot;:&quot;&quot;},{&quot;key&quot;:&quot;MontoCambio&quot;,&quot;value&quot;:0}],&quot;Factura&quot;:[{&quot;FacturaDetalleSeguro&quot;:[]}]}}</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                    </elementProp>
+                  </collectionProp>
+                </elementProp>
+                <stringProp name="HTTPSampler.domain">${hostname2}</stringProp>
+                <stringProp name="HTTPSampler.port">443</stringProp>
+                <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+                <stringProp name="HTTPSampler.response_timeout"></stringProp>
+                <stringProp name="HTTPSampler.protocol">https</stringProp>
+                <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+                <stringProp name="HTTPSampler.path">/Gmg.Sapv.FrontEnd.Web/Sapv/Facturacion/CrearFactura</stringProp>
+                <stringProp name="HTTPSampler.method">POST</stringProp>
+                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                <boolProp name="HTTPSampler.monitor">false</boolProp>
+                <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+              </HTTPSamplerProxy>
+              <hashTree>
+                <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                  <collectionProp name="HeaderManager.headers">
+                    <elementProp name="Referer" elementType="Header">
+                      <stringProp name="Header.name">Referer</stringProp>
+                      <stringProp name="Header.value">https://${hostname2}/Gmg.Sapv.FrontEnd.Web/Sapv/</stringProp>
+                    </elementProp>
+                    <elementProp name="Accept-Language" elementType="Header">
+                      <stringProp name="Header.name">Accept-Language</stringProp>
+                      <stringProp name="Header.value">en-US,en;q=0.8</stringProp>
+                    </elementProp>
+                    <elementProp name="Origin" elementType="Header">
+                      <stringProp name="Header.name">Origin</stringProp>
+                      <stringProp name="Header.value">https://${hostname2}</stringProp>
+                    </elementProp>
+                    <elementProp name="Accept" elementType="Header">
+                      <stringProp name="Header.name">Accept</stringProp>
+                      <stringProp name="Header.value">application/json, text/javascript, */*; q=0.01</stringProp>
+                    </elementProp>
+                    <elementProp name="X-Requested-With" elementType="Header">
+                      <stringProp name="Header.name">X-Requested-With</stringProp>
+                      <stringProp name="Header.value">XMLHttpRequest</stringProp>
+                    </elementProp>
+                    <elementProp name="Content-Type" elementType="Header">
+                      <stringProp name="Header.name">Content-Type</stringProp>
+                      <stringProp name="Header.value">application/json; charset=UTF-8</stringProp>
+                    </elementProp>
+                    <elementProp name="Accept-Encoding" elementType="Header">
+                      <stringProp name="Header.name">Accept-Encoding</stringProp>
+                      <stringProp name="Header.value">gzip, deflate, br</stringProp>
+                    </elementProp>
+                    <elementProp name="User-Agent" elementType="Header">
+                      <stringProp name="Header.name">User-Agent</stringProp>
+                      <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.101 Safari/537.36</stringProp>
+                    </elementProp>
+                  </collectionProp>
+                </HeaderManager>
+                <hashTree/>
+                <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+                  <collectionProp name="Asserion.test_strings">
+                    <stringProp name="-136513041">&quot;InfoMessage&quot;:&quot;El registro se ha guardado satisfactoriamente.&quot;,</stringProp>
+                  </collectionProp>
+                  <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+                  <boolProp name="Assertion.assume_success">false</boolProp>
+                  <intProp name="Assertion.test_type">2</intProp>
+                </ResponseAssertion>
+                <hashTree/>
+                <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Regular Expression Extractor" enabled="true">
+                  <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+                  <stringProp name="RegexExtractor.refname">_idFactura</stringProp>
+                  <stringProp name="RegexExtractor.regex">&quot;IdFactura&quot;:(.*?),</stringProp>
+                  <stringProp name="RegexExtractor.template">$1$</stringProp>
+                  <stringProp name="RegexExtractor.default"></stringProp>
+                  <stringProp name="RegexExtractor.match_number">1</stringProp>
+                </RegexExtractor>
+                <hashTree/>
+              </hashTree>
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="613 /Gmg.Sapv.FrontEnd.Web/Sapv/Reportes/VerTicketContado" enabled="false">
+                <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+                <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                  <collectionProp name="Arguments.arguments">
+                    <elementProp name="" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.value">{&quot;IdFactura&quot;:${_idFactura},&quot;IdPersona&quot;:${_idPersona},&quot;ExtendedProporeties&quot;:[{&quot;Key&quot;:&quot;reportName&quot;,&quot;Value&quot;:&quot;rptFacturaVentas&quot;}]}</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                    </elementProp>
+                  </collectionProp>
+                </elementProp>
+                <stringProp name="HTTPSampler.domain">${hostname2}</stringProp>
+                <stringProp name="HTTPSampler.port">443</stringProp>
+                <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+                <stringProp name="HTTPSampler.response_timeout"></stringProp>
+                <stringProp name="HTTPSampler.protocol">https</stringProp>
+                <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+                <stringProp name="HTTPSampler.path">/Gmg.Sapv.FrontEnd.Web/Sapv/Reportes/VerTicketContado</stringProp>
+                <stringProp name="HTTPSampler.method">POST</stringProp>
+                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                <boolProp name="HTTPSampler.monitor">false</boolProp>
+                <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+              </HTTPSamplerProxy>
+              <hashTree>
+                <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                  <collectionProp name="HeaderManager.headers">
+                    <elementProp name="Referer" elementType="Header">
+                      <stringProp name="Header.name">Referer</stringProp>
+                      <stringProp name="Header.value">https://${hostname2}/Gmg.Sapv.FrontEnd.Web/Sapv/</stringProp>
+                    </elementProp>
+                    <elementProp name="Accept-Language" elementType="Header">
+                      <stringProp name="Header.name">Accept-Language</stringProp>
+                      <stringProp name="Header.value">en-US,en;q=0.8</stringProp>
+                    </elementProp>
+                    <elementProp name="Origin" elementType="Header">
+                      <stringProp name="Header.name">Origin</stringProp>
+                      <stringProp name="Header.value">https://${hostname2}</stringProp>
+                    </elementProp>
+                    <elementProp name="Accept" elementType="Header">
+                      <stringProp name="Header.name">Accept</stringProp>
+                      <stringProp name="Header.value">application/json, text/javascript, */*; q=0.01</stringProp>
+                    </elementProp>
+                    <elementProp name="X-Requested-With" elementType="Header">
+                      <stringProp name="Header.name">X-Requested-With</stringProp>
+                      <stringProp name="Header.value">XMLHttpRequest</stringProp>
+                    </elementProp>
+                    <elementProp name="Content-Type" elementType="Header">
+                      <stringProp name="Header.name">Content-Type</stringProp>
+                      <stringProp name="Header.value">application/json; charset=UTF-8</stringProp>
+                    </elementProp>
+                    <elementProp name="Accept-Encoding" elementType="Header">
+                      <stringProp name="Header.name">Accept-Encoding</stringProp>
+                      <stringProp name="Header.value">gzip, deflate, br</stringProp>
+                    </elementProp>
+                    <elementProp name="User-Agent" elementType="Header">
+                      <stringProp name="Header.name">User-Agent</stringProp>
+                      <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.101 Safari/537.36</stringProp>
+                    </elementProp>
+                  </collectionProp>
+                </HeaderManager>
+                <hashTree/>
+                <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+                  <collectionProp name="Asserion.test_strings">
+                    <stringProp name="-59758292">&quot;InfoMessage&quot;:&quot;Proceso efectuado satisfactoriamente.&quot;,</stringProp>
+                  </collectionProp>
+                  <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+                  <boolProp name="Assertion.assume_success">false</boolProp>
+                  <intProp name="Assertion.test_type">2</intProp>
+                </ResponseAssertion>
+                <hashTree/>
+              </hashTree>
             </hashTree>
           </hashTree>
-          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="VerReportes" enabled="true">
+          <IfController guiclass="IfControllerPanel" testclass="IfController" testname="if FormaPago == Flexipagos" enabled="true">
+            <stringProp name="IfController.condition">&quot;${idFormaPago}&quot; == &quot;5&quot;</stringProp>
+            <boolProp name="IfController.evaluateAll">false</boolProp>
+          </IfController>
+          <hashTree>
+            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="CrearFactura" enabled="true">
+              <boolProp name="TransactionController.includeTimers">false</boolProp>
+              <boolProp name="TransactionController.parent">false</boolProp>
+            </TransactionController>
+            <hashTree>
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="612 /Gmg.Sapv.FrontEnd.Web/Sapv/Facturacion/CrearFactura [Flexipago]" enabled="true">
+                <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+                <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                  <collectionProp name="Arguments.arguments">
+                    <elementProp name="" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.value">{&quot;model&quot;:{&quot;IdOrdenPedido&quot;:${_idOrdenPedido},&quot;NumeroOrden&quot;:&quot;${_numeroOrden}&quot;,&quot;FechaProceso&quot;:&quot;${_fechaProceso}&quot;,&quot;FechaCreacion&quot;:&quot;${_fechaCreacion}&quot;,&quot;IdTipoVenta&quot;:${_idTipoVenta},&quot;TipoVenta&quot;:&quot;${_tipoVenta}&quot;,&quot;IdOrdenPedidoPadre&quot;:null,&quot;IdTipoOrden&quot;:${_idTipoOrden},&quot;IdConvenio&quot;:null,&quot;IdEstadoOrdenPedido&quot;:7,&quot;FacturaConvenio&quot;:false,&quot;IdTipoIdentificacion&quot;:1,&quot;TipoIdentificacion&quot;:&quot;Cédula&quot;,&quot;IdCanalVenta&quot;:${_idCanalVenta},&quot;CanalVenta&quot;:&quot;${_canalVenta}&quot;,&quot;mIdentificacion&quot;:&quot;${_midentificacion}&quot;,&quot;CodCliente&quot;:null,&quot;PrimerNombre&quot;:&quot;${_primerNombre}&quot;,&quot;PrimerApellido&quot;:&quot;${_primerApellido}&quot;,&quot;SegundoApellido&quot;:&quot;${_segundoApellido}&quot;,&quot;Vendedores&quot;:{&quot;ContentEncoding&quot;:null,&quot;ContentType&quot;:null,&quot;Data&quot;:{&quot;Data&quot;:[{&quot;IdVendedor&quot;:${_idVendedor},&quot;Vendedor&quot;:&quot;Cristopher Campos Mayorga&quot;,&quot;Seleccionado&quot;:true,&quot;FacturaConvenio&quot;:false}],&quot;MessageType&quot;:0,&quot;InfoMessage&quot;:&quot;Proceso efectuado satisfactoriamente&quot;,&quot;ErrorMessage&quot;:&quot;&quot;},&quot;JsonRequestBehavior&quot;:0,&quot;MaxJsonLength&quot;:null,&quot;RecursionLimit&quot;:null},&quot;OrdenPedidoFormaPago&quot;:[],&quot;OrdenPedidoDetalle&quot;:[{&quot;Producto&quot;:{&quot;Nombre&quot;:&quot;${_nombreProducto}&quot;,&quot;IdTipoProducto&quot;:null,&quot;TipoProducto&quot;:&quot;${_tipoProducto}&quot;,&quot;EsExento&quot;:${_esExento},&quot;NumeroSerie&quot;:&quot;No&quot;,&quot;TipoProducto1&quot;:{&quot;IdTipoProducto&quot;:${_idTipoProducto},&quot;FechaCreacion&quot;:&quot;/${_fechaCreacion2}/&quot;,&quot;UsuarioCreacion&quot;:null,&quot;FechaModificacion&quot;:null,&quot;UsuarioModificacion&quot;:null,&quot;Nombre&quot;:null,&quot;Descripcion&quot;:null,&quot;EsServicio&quot;:false,&quot;Llave&quot;:&quot;${_tipoProducto}&quot;,&quot;Activo&quot;:false,&quot;Producto&quot;:[],&quot;Action&quot;:null,&quot;MessageId&quot;:null,&quot;MessageSerializationMode&quot;:0,&quot;MessageSessionId&quot;:null,&quot;MessageStatus&quot;:0,&quot;MessageProperties&quot;:null,&quot;ExtendedProporeties&quot;:null},&quot;EsServicio&quot;:false,&quot;ExtendedProporeties&quot;:[{&quot;Key&quot;:&quot;EsServicio&quot;,&quot;Value&quot;:false}]},&quot;Bodega&quot;:&quot;${_bodega}&quot;,&quot;Sku&quot;:&quot;${_sku}&quot;,&quot;Nombre&quot;:&quot;${_nombreProducto}&quot;,&quot;Serie&quot;:&quot;&quot;,&quot;Cantidad&quot;:${_cantidad},&quot;PrecioUnitario&quot;:${_precioUnitario},&quot;Descuento&quot;:${_descuento},&quot;MontoNeto&quot;:${_montoNeto},&quot;ExtragarantiaAplicada&quot;:${_extragarantiaAplicada},&quot;ValorEG&quot;:0,&quot;PlazoExtragarantia&quot;:0,&quot;AplicaSerie&quot;:false,&quot;SeguroObligatorio&quot;:false,&quot;IdOrdenPedidoDetalle&quot;:${_idOrdenPedidoDetalle},&quot;CodigoBodegaSAPV&quot;:&quot;01&quot;,&quot;IdBodega&quot;:1,&quot;IdProducto&quot;:${_idProducto},&quot;CostoUnitario&quot;:${_costoUnitario},&quot;Impuesto&quot;:${_impuesto},&quot;IdLlave&quot;:null,&quot;IdCombo&quot;:0,&quot;EsCombo&quot;:false,&quot;TasaImpuesto&quot;:0,&quot;Utilidad&quot;:${_utilidad},&quot;IdTipoCatalogoProducto&quot;:1,&quot;NumeroLinea&quot;:1,&quot;Subtotal&quot;:${_subtotal},&quot;Total&quot;:${_total},&quot;MontoRetencion&quot;:0}],&quot;VentaSubtotal&quot;:${_subtotal},&quot;VentaDescuento&quot;:0,&quot;VentaImpuestos&quot;:${_impuesto},&quot;VentaTotal&quot;:${_total},&quot;EGImpuestos&quot;:0,&quot;EGMensualidad&quot;:0,&quot;ApartadoAdelanto&quot;:0,&quot;ApartadoPlazo&quot;:0,&quot;ValorApartadoPlazo&quot;:0,&quot;ApartadoInteres&quot;:0,&quot;ApartadoMensualidad&quot;:${_apartadoMensualidad},&quot;ApartadoTotal&quot;:${_total},&quot;NumManual&quot;:null,&quot;NumDocFisico&quot;:null,&quot;Observacion&quot;:&quot;&quot;,&quot;Observaciones&quot;:&quot;&quot;,&quot;IdFormaPago&quot;:${idFormaPago},&quot;Adelanto&quot;:0,&quot;IdPersona&quot;:${_idPersona},&quot;IdTienda&quot;:${_idTienda},&quot;IdTiendaRetiro&quot;:${_idTienda},&quot;IdTipoDescuento&quot;:null,&quot;IdUsuAproDes&quot;:0,&quot;Identificacion&quot;:&quot;${_midentificacion}&quot;,&quot;NumeroTarjeta&quot;:&quot;Cotizador&quot;,&quot;Plazo&quot;:${_plazo},&quot;TasaImpuesto&quot;:0,&quot;TasaInteresMora&quot;:0,&quot;TasaInteresNormal&quot;:${_tasaInteresNormal},&quot;MontoCompra&quot;:${_subtotal},&quot;Prima&quot;:0,&quot;Descuento&quot;:0,&quot;Impuesto&quot;:${_impuesto},&quot;MontoFinanciado&quot;:${_total},&quot;TotalCompra&quot;:${_total},&quot;CuotaPactada&quot;:${_cuotaPactada},&quot;Utilidad&quot;:${_utilidad},&quot;IdPromocion&quot;:${_idPromocion},&quot;IdCuenta&quot;:${_idCuenta},&quot;CodigoMoneda&quot;:null,&quot;IdVendedor&quot;:${_idVendedor},&quot;IdClientePdv&quot;:${_idClientePdv},&quot;MontoRetencion&quot;:0,&quot;MontoAutorizado&quot;:0,&quot;IdSegmento&quot;:${_segmento},&quot;FormaPagoDetalle&quot;:[{&quot;IdTipoTransaccion&quot;:1,&quot;IdFormaPago&quot;:${idFormaPago},&quot;IdPromocion&quot;:0,&quot;IdMoneda&quot;:1,&quot;Referencia&quot;:null,&quot;NumeroFormaPago&quot;:null,&quot;Monto&quot;:${_total},&quot;MontoCambioCompra&quot;:${_montoCambioCompra},&quot;MontoCambioVenta&quot;:${_montoCambioVenta},&quot;MontoExtranjero&quot;:0,&quot;Vouchers&quot;:[],&quot;FormaPago&quot;:{&quot;Orden&quot;:8},&quot;IdOrdenPedido&quot;:${_idOrdenPedido}}],&quot;ExtendedProporeties&quot;:[{&quot;Key&quot;:${_idOrdenPedidoDetalle},&quot;Value&quot;:&quot;&quot;},{&quot;key&quot;:&quot;MontoCambio&quot;,&quot;value&quot;:0}],&quot;Factura&quot;:[{&quot;FacturaDetalleSeguro&quot;:[]}]}}</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                    </elementProp>
+                  </collectionProp>
+                </elementProp>
+                <stringProp name="HTTPSampler.domain">${hostname2}</stringProp>
+                <stringProp name="HTTPSampler.port">443</stringProp>
+                <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+                <stringProp name="HTTPSampler.response_timeout"></stringProp>
+                <stringProp name="HTTPSampler.protocol">https</stringProp>
+                <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+                <stringProp name="HTTPSampler.path">/Gmg.Sapv.FrontEnd.Web/Sapv/Facturacion/CrearFactura</stringProp>
+                <stringProp name="HTTPSampler.method">POST</stringProp>
+                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                <boolProp name="HTTPSampler.monitor">false</boolProp>
+                <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+              </HTTPSamplerProxy>
+              <hashTree>
+                <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                  <collectionProp name="HeaderManager.headers">
+                    <elementProp name="Referer" elementType="Header">
+                      <stringProp name="Header.name">Referer</stringProp>
+                      <stringProp name="Header.value">https://${hostname2}/Gmg.Sapv.FrontEnd.Web/Sapv/</stringProp>
+                    </elementProp>
+                    <elementProp name="Accept-Language" elementType="Header">
+                      <stringProp name="Header.name">Accept-Language</stringProp>
+                      <stringProp name="Header.value">en-US,en;q=0.8</stringProp>
+                    </elementProp>
+                    <elementProp name="Origin" elementType="Header">
+                      <stringProp name="Header.name">Origin</stringProp>
+                      <stringProp name="Header.value">https://${hostname2}</stringProp>
+                    </elementProp>
+                    <elementProp name="Accept" elementType="Header">
+                      <stringProp name="Header.name">Accept</stringProp>
+                      <stringProp name="Header.value">application/json, text/javascript, */*; q=0.01</stringProp>
+                    </elementProp>
+                    <elementProp name="X-Requested-With" elementType="Header">
+                      <stringProp name="Header.name">X-Requested-With</stringProp>
+                      <stringProp name="Header.value">XMLHttpRequest</stringProp>
+                    </elementProp>
+                    <elementProp name="Content-Type" elementType="Header">
+                      <stringProp name="Header.name">Content-Type</stringProp>
+                      <stringProp name="Header.value">application/json; charset=UTF-8</stringProp>
+                    </elementProp>
+                    <elementProp name="Accept-Encoding" elementType="Header">
+                      <stringProp name="Header.name">Accept-Encoding</stringProp>
+                      <stringProp name="Header.value">gzip, deflate, br</stringProp>
+                    </elementProp>
+                    <elementProp name="User-Agent" elementType="Header">
+                      <stringProp name="Header.name">User-Agent</stringProp>
+                      <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.101 Safari/537.36</stringProp>
+                    </elementProp>
+                  </collectionProp>
+                </HeaderManager>
+                <hashTree/>
+                <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+                  <collectionProp name="Asserion.test_strings">
+                    <stringProp name="-136513041">&quot;InfoMessage&quot;:&quot;El registro se ha guardado satisfactoriamente.&quot;,</stringProp>
+                  </collectionProp>
+                  <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+                  <boolProp name="Assertion.assume_success">false</boolProp>
+                  <intProp name="Assertion.test_type">2</intProp>
+                </ResponseAssertion>
+                <hashTree/>
+                <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Regular Expression Extractor" enabled="true">
+                  <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+                  <stringProp name="RegexExtractor.refname">_idFactura</stringProp>
+                  <stringProp name="RegexExtractor.regex">&quot;IdFactura&quot;:(.*?),</stringProp>
+                  <stringProp name="RegexExtractor.template">$1$</stringProp>
+                  <stringProp name="RegexExtractor.default"></stringProp>
+                  <stringProp name="RegexExtractor.match_number">1</stringProp>
+                </RegexExtractor>
+                <hashTree/>
+              </hashTree>
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="613 /Gmg.Sapv.FrontEnd.Web/Sapv/Reportes/VerTicketContado" enabled="false">
+                <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+                <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                  <collectionProp name="Arguments.arguments">
+                    <elementProp name="" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.value">{&quot;IdFactura&quot;:${_idFactura},&quot;IdPersona&quot;:${_idPersona},&quot;ExtendedProporeties&quot;:[{&quot;Key&quot;:&quot;reportName&quot;,&quot;Value&quot;:&quot;rptFacturaVentas&quot;}]}</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                    </elementProp>
+                  </collectionProp>
+                </elementProp>
+                <stringProp name="HTTPSampler.domain">${hostname2}</stringProp>
+                <stringProp name="HTTPSampler.port">443</stringProp>
+                <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+                <stringProp name="HTTPSampler.response_timeout"></stringProp>
+                <stringProp name="HTTPSampler.protocol">https</stringProp>
+                <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+                <stringProp name="HTTPSampler.path">/Gmg.Sapv.FrontEnd.Web/Sapv/Reportes/VerTicketContado</stringProp>
+                <stringProp name="HTTPSampler.method">POST</stringProp>
+                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                <boolProp name="HTTPSampler.monitor">false</boolProp>
+                <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+              </HTTPSamplerProxy>
+              <hashTree>
+                <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                  <collectionProp name="HeaderManager.headers">
+                    <elementProp name="Referer" elementType="Header">
+                      <stringProp name="Header.name">Referer</stringProp>
+                      <stringProp name="Header.value">https://${hostname2}/Gmg.Sapv.FrontEnd.Web/Sapv/</stringProp>
+                    </elementProp>
+                    <elementProp name="Accept-Language" elementType="Header">
+                      <stringProp name="Header.name">Accept-Language</stringProp>
+                      <stringProp name="Header.value">en-US,en;q=0.8</stringProp>
+                    </elementProp>
+                    <elementProp name="Origin" elementType="Header">
+                      <stringProp name="Header.name">Origin</stringProp>
+                      <stringProp name="Header.value">https://${hostname2}</stringProp>
+                    </elementProp>
+                    <elementProp name="Accept" elementType="Header">
+                      <stringProp name="Header.name">Accept</stringProp>
+                      <stringProp name="Header.value">application/json, text/javascript, */*; q=0.01</stringProp>
+                    </elementProp>
+                    <elementProp name="X-Requested-With" elementType="Header">
+                      <stringProp name="Header.name">X-Requested-With</stringProp>
+                      <stringProp name="Header.value">XMLHttpRequest</stringProp>
+                    </elementProp>
+                    <elementProp name="Content-Type" elementType="Header">
+                      <stringProp name="Header.name">Content-Type</stringProp>
+                      <stringProp name="Header.value">application/json; charset=UTF-8</stringProp>
+                    </elementProp>
+                    <elementProp name="Accept-Encoding" elementType="Header">
+                      <stringProp name="Header.name">Accept-Encoding</stringProp>
+                      <stringProp name="Header.value">gzip, deflate, br</stringProp>
+                    </elementProp>
+                    <elementProp name="User-Agent" elementType="Header">
+                      <stringProp name="Header.name">User-Agent</stringProp>
+                      <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.101 Safari/537.36</stringProp>
+                    </elementProp>
+                  </collectionProp>
+                </HeaderManager>
+                <hashTree/>
+                <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+                  <collectionProp name="Asserion.test_strings">
+                    <stringProp name="-59758292">&quot;InfoMessage&quot;:&quot;Proceso efectuado satisfactoriamente.&quot;,</stringProp>
+                  </collectionProp>
+                  <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+                  <boolProp name="Assertion.assume_success">false</boolProp>
+                  <intProp name="Assertion.test_type">2</intProp>
+                </ResponseAssertion>
+                <hashTree/>
+              </hashTree>
+            </hashTree>
+          </hashTree>
+          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="VerReportes" enabled="false">
             <boolProp name="TransactionController.includeTimers">false</boolProp>
             <boolProp name="TransactionController.parent">false</boolProp>
           </TransactionController>
@@ -4402,7 +4557,7 @@ vars.put(&quot;_total&quot;, &quot;&quot;+Math.round(Double.parseDouble(vars.get
             </hashTree>
           </hashTree>
         </hashTree>
-        <RecordingController guiclass="RecordController" testclass="RecordingController" testname="Recording Controller" enabled="false"/>
+        <RecordingController guiclass="RecordController" testclass="RecordingController" testname="Recording Controller1" enabled="false"/>
         <hashTree>
           <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="615 /Gmg.Identity.Provider.FrontEnd.Web/Login" enabled="true">
             <boolProp name="TransactionController.includeTimers">false</boolProp>
@@ -8566,6 +8721,8 @@ vars.put(&quot;_total&quot;, &quot;&quot;+Math.round(Double.parseDouble(vars.get
             </hashTree>
           </hashTree>
         </hashTree>
+        <RecordingController guiclass="RecordController" testclass="RecordingController" testname="Recording Controller Devoluciones" enabled="false"/>
+        <hashTree/>
       </hashTree>
       <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
         <boolProp name="ResultCollector.error_logging">false</boolProp>
